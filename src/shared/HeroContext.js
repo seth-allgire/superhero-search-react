@@ -3,7 +3,8 @@ import React, { useCallback, useState } from "react";
 export const HeroContext = React.createContext(null);
 
 export function HeroProvider(props) {
-  const [acctUser, setAcctUser] = useState("");
+  const [account, setAccount] = useState("");
+  const [accountPswd, setAccountPswd] = useState("");
   const [user, setUser] = useState("");
   const [search, setSearch] = useState([]);
   const [myHeroes, setMyHeroes] = useState([]);
@@ -32,13 +33,15 @@ export function HeroProvider(props) {
   return (
     <HeroContext.Provider
       value={{
-        acctUser,
-        setAcctUser,
+        account,
+        accountPswd,
         user,
-        setUser,
         search,
-        setSearch,
         myHeroes,
+        setAccount,
+        setAccountPswd,
+        setUser,
+        setSearch,
         addMyHero,
         deleteMyHero,
         logoutUser,

@@ -15,29 +15,32 @@ import Menu from "./components/Menu";
 
 function App() {
   return (
-    <Router>
-      <Menu />
-      <Switch>
-        <Route path="/createAcct">
-          <CreateAccountPage />
-        </Route>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route path="/search">
-          <SearchPage />
-        </Route>
-        <Route path="/myHeroes">
-          <MyHeroesPage />
-        </Route>
-        <Route path="/myVillains">
-          <MyVillainsPage />
-        </Route>
-        <Route path="*">
-          <Redirect to="/launch"></Redirect>
-        </Route>
-      </Switch>
-    </Router>
+    <>
+      <header className="header">Search for Supers</header>
+      <Router>
+        <Menu />
+        <Switch>
+          <Route path="/createAcct">
+            <CreateAccountPage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route path="/search">
+            <SearchPage />
+          </Route>
+          <Route path="/myHeroes">
+            <MyHeroesPage />
+          </Route>
+          <Route path="/myVillains">
+            <MyVillainsPage />
+          </Route>
+          <Route path="*">
+            <Redirect to="/launch"></Redirect>
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
