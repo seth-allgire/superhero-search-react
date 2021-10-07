@@ -6,6 +6,7 @@ export function HeroProvider(props) {
   const [account, setAccount] = useState("");
   const [accountPswd, setAccountPswd] = useState("");
   const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
   const [search, setSearch] = useState([]);
   const [myHeroes, setMyHeroes] = useState([]);
 
@@ -25,9 +26,10 @@ export function HeroProvider(props) {
 
   const logoutUser = useCallback(() => {
     setUser("");
+    setPassword("");
     setSearch("");
     setMyHeroes([]);
-  }, [setUser, setSearch, setMyHeroes]);
+  }, [setUser, setPassword, setSearch, setMyHeroes]);
   //add state and functions to share
 
   return (
@@ -36,11 +38,13 @@ export function HeroProvider(props) {
         account,
         accountPswd,
         user,
+        password,
         search,
         myHeroes,
         setAccount,
         setAccountPswd,
         setUser,
+        setPassword,
         setSearch,
         addMyHero,
         deleteMyHero,

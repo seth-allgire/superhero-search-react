@@ -12,6 +12,7 @@ import SearchPage from "./components/SearchPage";
 import MyHeroesPage from "./components/MyHeroesPage";
 import MyVillainsPage from "./components/MyVillainsPage";
 import Menu from "./components/Menu";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -20,23 +21,23 @@ function App() {
       <Router>
         <Menu />
         <Switch>
-          <Route path="/createAcct">
+          <ProtectedRoute shielded={false} path="/createAcct">
             <CreateAccountPage />
-          </Route>
-          <Route path="/login">
+          </ProtectedRoute>
+          <ProtectedRoute shielded={false} path="/login">
             <LoginPage />
-          </Route>
-          <Route path="/search">
+          </ProtectedRoute>
+          <ProtectedRoute shielded={true} path="/search">
             <SearchPage />
-          </Route>
-          <Route path="/myHeroes">
+          </ProtectedRoute>
+          <ProtectedRoute shielded={true} path="/myHeroes">
             <MyHeroesPage />
-          </Route>
-          <Route path="/myVillains">
+          </ProtectedRoute>
+          <ProtectedRoute shielded={true} path="/myVillains">
             <MyVillainsPage />
-          </Route>
+          </ProtectedRoute>
           <Route path="*">
-            <Redirect to="/launch"></Redirect>
+            <Redirect to="/createAcct"></Redirect>
           </Route>
         </Switch>
       </Router>

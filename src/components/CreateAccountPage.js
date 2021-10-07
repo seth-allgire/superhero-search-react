@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { HeroContext } from "../shared/HeroContext";
+import { Link, NavLink } from "react-router-dom";
 
 export default function CreateAccountPage() {
   const [showDiv, setShowDiv] = useState(false);
@@ -9,12 +10,13 @@ export default function CreateAccountPage() {
   const [acctPassword, setAcctPassword] = useState("");
   const [error, setError] = useState(false);
   const onClick = () => setShowDiv(true);
-  const { setAccount, setAccountPswd } = useContext(HeroContext);
+  const { account, setAccount, accountPswd, setAccountPswd } =
+    useContext(HeroContext);
   return (
     <div>
       <h3 className="section-head">Create an account to Search for Supers!</h3>
       <button className="form-button" onClick={onClick}>
-        Create Account
+        New Account
       </button>
 
       {showDiv === true && (
@@ -88,6 +90,7 @@ export default function CreateAccountPage() {
                 "Password must contain at least 4 characters"}
             </div>
           </div>
+
           <button
             className="form-button"
             onClick={() => {
@@ -106,8 +109,31 @@ export default function CreateAccountPage() {
           >
             Submit
           </button>
+          {account && accountPswd && (
+            <div className="success">Success! You're ready to Login below!</div>
+          )}
         </div>
       )}
+      <div className="form-section">
+        <div>
+          <h3 className="section-head">Already have an account?</h3>
+          <div className="link int-link" activeClassName="active">
+            <NavLink to="/login" className="nest-link">
+              Go to Login
+            </NavLink>
+          </div>
+        </div>
+      </div>
+
+      {/* {account && accountPswd && (
+        <Link to="/login">
+          <button className="form-button">Go to Login</button>
+        </Link>
+      )} */}
+
+      {/* <button className="form-button" onClick=>
+        Go to Login
+      </button> */}
     </div>
   );
 }

@@ -12,6 +12,7 @@ code {
     monospace;
 } */
 body {
+  margin: 2px;
   background-color: #f3ece8;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -28,7 +29,8 @@ body {
   margin-bottom: 5px;
 }
 
-.section-head {
+.section-head,
+.success {
   margin-top: 30px;
   color: #144e75;
   text-align: center;
@@ -49,6 +51,16 @@ body {
   flex-basis: calc(25% - 4px);
   /* background-color: #f7db51; */
   background-color: #217fbe;
+  text-decoration: none;
+}
+
+.int-link {
+  width: 120px;
+}
+
+.nest-link {
+  width: 120px;
+  color: #f3ece8;
   text-decoration: none;
 }
 
@@ -91,12 +103,14 @@ body {
   width: 120px;
   height: 30px;
   border: none;
+  font-size: 16px;
   color: #f3ece8;
   font-weight: 600;
   margin-left: calc(50% - 60px);
   margin-top: 1px;
   margin-bottom: 10px;
   background-color: #217fbe;
+  cursor: pointer;
 }
 
 .form-button:hover {
