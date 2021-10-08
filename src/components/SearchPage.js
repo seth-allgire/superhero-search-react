@@ -52,31 +52,37 @@ export default function SearchPage() {
       <div>
         {loading && <div>LOADING</div>}
         {error && !loading && <div>{error}</div>}
+        {search && !loading && (
+          <h3 className="section-head">Matching Heroes and Villains</h3>
+        )}
         {search &&
           !loading &&
           search.map((val) => (
-            <HeroDisplay
-              isMyHero={myHeroes.some((hero) => hero.id === val.id)}
-              key={val.id}
-              id={val.id}
-              name={val.name}
-              intel={val.intel}
-              strength={val.strength}
-              speed={val.speed}
-              durability={val.durability}
-              power={val.power}
-              combat={val.combat}
-              fullName={val.fullName}
-              birthplace={val.birthplace}
-              alignment={val.alignment}
-              gender={val.gender}
-              race={val.race}
-              height={val.height}
-              weight={val.weight}
-              url={val.url}
-              addMyHero={addMyHero}
-              deleteMyHero={deleteMyHero}
-            ></HeroDisplay>
+            <>
+              <HeroDisplay
+                isMyHero={myHeroes.some((hero) => hero.id === val.id)}
+                // isMyVillain={myVillains.some((hero) => hero.alignment)}
+                key={val.id}
+                id={val.id}
+                name={val.name}
+                intel={val.intel}
+                strength={val.strength}
+                speed={val.speed}
+                durability={val.durability}
+                power={val.power}
+                combat={val.combat}
+                fullName={val.fullName}
+                birthplace={val.birthplace}
+                alignment={val.alignment}
+                gender={val.gender}
+                race={val.race}
+                height={val.height}
+                weight={val.weight}
+                url={val.url}
+                addMyHero={addMyHero}
+                deleteMyHero={deleteMyHero}
+              ></HeroDisplay>
+            </>
           ))}
       </div>
     </>

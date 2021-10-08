@@ -23,9 +23,16 @@ export default function HeroDisplay({
 }) {
   return (
     <div>
-      <h3 className="section-head">Matching Heroes and Villains</h3>
       <h2 className="section-head">{name}</h2>
       <img src={url} alt="hero-url" />
+      {!isMyHero && (
+        <button onClick={() => addMyHero({ id, name, url })}>
+          Add to My Heroes
+        </button>
+      )}
+      {isMyHero && (
+        <button onClick={() => deleteMyHero(id)}>Remove from My Heroes</button>
+      )}
     </div>
   );
 }
