@@ -30,7 +30,6 @@ export function HeroProvider(props) {
     setSearch("");
     setMyHeroes([]);
   }, [setUser, setPassword, setSearch, setMyHeroes]);
-  //add state and functions to share
 
   return (
     <HeroContext.Provider

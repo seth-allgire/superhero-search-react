@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { HeroContext } from "../shared/HeroContext";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function CreateAccountPage() {
   const [showDiv, setShowDiv] = useState(false);
@@ -81,7 +81,7 @@ export default function CreateAccountPage() {
               type="password"
               value={acctPassword}
               onChange={(e) => setAcctPassword(e.target.value)}
-              id="acctUser"
+              id="acctPassword"
               placeholder="your password"
             ></input>
             <div className="form-error">
@@ -117,23 +117,13 @@ export default function CreateAccountPage() {
       <div className="form-section">
         <div>
           <h3 className="section-head">Already have an account?</h3>
-          <div className="link int-link" activeClassName="active">
+          <div className="link int-link">
             <NavLink to="/login" className="nest-link">
               Go to Login
             </NavLink>
           </div>
         </div>
       </div>
-
-      {/* {account && accountPswd && (
-        <Link to="/login">
-          <button className="form-button">Go to Login</button>
-        </Link>
-      )} */}
-
-      {/* <button className="form-button" onClick=>
-        Go to Login
-      </button> */}
     </div>
   );
 }

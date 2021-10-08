@@ -36,6 +36,11 @@ body {
   text-align: center;
 }
 
+.success {
+  color: #e43d1d;
+  font-weight: bold;
+}
+
 .menu {
   display: flex;
   flex-wrap: wrap;
@@ -87,7 +92,9 @@ body {
   margin-right: 5px;
 }
 
-.form-input {
+.form-input,
+.form-input:active {
+  background-color: #f3ece8;
   flex-basis: 25%;
 }
 

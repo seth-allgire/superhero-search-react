@@ -5,7 +5,7 @@ export default function LoginPage() {
   const [error, setError] = useState(false);
   const [username, setUsername] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  const { account, accountPswd, user, setUser, password, setPassword } =
+  const { account, accountPswd, setUser, setPassword } =
     useContext(HeroContext);
   return (
     <div>
