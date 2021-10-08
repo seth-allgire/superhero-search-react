@@ -10,7 +10,7 @@ import LoginPage from "./components/LoginPage";
 import CreateAccountPage from "./components/CreateAccountPage";
 import SearchPage from "./components/SearchPage";
 import MyHeroesPage from "./components/MyHeroesPage";
-import MyVillainsPage from "./components/MyVillainsPage";
+// import MyVillainsPage from "./components/MyVillainsPage";
 import Menu from "./components/Menu";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -31,10 +31,10 @@ function App() {
             <SearchPage />
           </ProtectedRoute>
           <ProtectedRoute shielded={true} path="/myHeroes">
-            <MyHeroesPage />
+            <MyHeroesPage alignment="good" />
           </ProtectedRoute>
           <ProtectedRoute shielded={true} path="/myVillains">
-            <MyVillainsPage />
+            <MyHeroesPage alignment="bad" />
           </ProtectedRoute>
           <Route path="*">
             <Redirect to="/createAcct"></Redirect>

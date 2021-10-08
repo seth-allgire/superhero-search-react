@@ -24,14 +24,16 @@ export default function HeroDisplay({
   return (
     <div>
       <h2 className="section-head">{name}</h2>
-      <img src={url} alt="hero-url" />
+      <img src={url} alt="hero-url" className="hero-img" />
       {!isMyHero && (
-        <button onClick={() => addMyHero({ id, name, url })}>
-          Add to My Heroes
+        <button onClick={() => addMyHero({ id, name, url, alignment })}>
+          Add to My {alignment === "good" ? "Heroes" : "Villains"}
         </button>
       )}
       {isMyHero && (
-        <button onClick={() => deleteMyHero(id)}>Remove from My Heroes</button>
+        <button onClick={() => deleteMyHero(id, { alignment })}>
+          Remove from My {alignment === "good" ? "Heroes" : "Villains"}
+        </button>
       )}
     </div>
   );

@@ -52,16 +52,15 @@ export default function SearchPage() {
       <div>
         {loading && <div>LOADING</div>}
         {error && !loading && <div>{error}</div>}
-        {search && !loading && (
+        {/* {search && !loading && (
           <h3 className="section-head">Matching Heroes and Villains</h3>
-        )}
+        )} */}
         {search &&
           !loading &&
           search.map((val) => (
             <>
               <HeroDisplay
                 isMyHero={myHeroes.some((hero) => hero.id === val.id)}
-                // isMyVillain={myVillains.some((hero) => hero.alignment)}
                 key={val.id}
                 id={val.id}
                 name={val.name}
