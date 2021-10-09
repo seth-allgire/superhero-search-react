@@ -12,11 +12,12 @@ import SearchPage from "./components/SearchPage";
 import MyHeroesPage from "./components/MyHeroesPage";
 import Menu from "./components/Menu";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      <header className="header">Search for Supers</header>
+      <Header />
       <Router>
         <Menu />
         <Switch>
