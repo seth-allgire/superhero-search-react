@@ -9,6 +9,14 @@ export function HeroProvider(props) {
   const [password, setPassword] = useState("");
   const [search, setSearch] = useState([]);
   const [myHeroes, setMyHeroes] = useState([]);
+  const [showDiv, setShowDiv] = useState(false);
+  // const [showStats, setShowStats] = useState(false);
+
+  const clickToShow = useCallback(() => {
+    setShowDiv(true);
+  }, [setShowDiv]);
+
+  // const clickShowStats = () => setShowStats(true);
 
   const addMyHero = useCallback(
     (hero) => {
@@ -40,13 +48,19 @@ export function HeroProvider(props) {
         password,
         search,
         myHeroes,
+        showDiv,
+        // showStats,
         setAccount,
         setAccountPswd,
         setUser,
         setPassword,
         setSearch,
+        setShowDiv,
+        // setShowStats,
         addMyHero,
         deleteMyHero,
+        clickToShow,
+        // clickShowStats,
         logoutUser,
       }}
     >

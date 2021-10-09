@@ -1,16 +1,3 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
 body {
   margin: 2px;
   background-color: #f3ece8;
@@ -20,7 +7,7 @@ body {
 .header {
   height: 90px;
   line-height: 100px;
-  background-color: #e43d1d;
+  background-color: #d63a1b;
   padding-left: 15px;
   color: #f3ece8;
   font-size: 40px;
@@ -37,7 +24,7 @@ body {
 }
 
 .success {
-  color: #e43d1d;
+  color: #d63a1b;
   font-weight: bold;
 }
 
@@ -59,12 +46,8 @@ body {
   text-decoration: none;
 }
 
-.int-link {
-  width: 120px;
-}
-
 .nest-link {
-  width: 120px;
+  /* width: 120px; */
   color: #f3ece8;
   text-decoration: none;
 }
@@ -79,7 +62,7 @@ body {
   color: #144e75;
 }
 
-.form-section {
+.form-container {
   display: flex;
   flex-flow: row wrap;
   padding: 5px;
@@ -94,26 +77,25 @@ body {
 
 .form-input,
 .form-input:active {
-  background-color: #f3ece8;
+  /* background-color: #f3ece8; */
   flex-basis: 25%;
 }
 
 .form-error {
-  color: #e43d1d;
+  color: #d63a1b;
   text-align: center;
   font-style: italic;
   min-height: 20px;
   flex-basis: 100%;
 }
 
-.form-button {
+/* .form-button {
   width: 120px;
   height: 30px;
   border: none;
   font-size: 16px;
   color: #f3ece8;
   font-weight: 600;
-  margin-left: calc(50% - 60px);
   margin-top: 1px;
   margin-bottom: 10px;
   background-color: #217fbe;
@@ -122,7 +104,7 @@ body {
 
 .form-button:hover {
   background-color: #5e95b9;
-}
+} */
 
 .hero-img {
   width: 240px;

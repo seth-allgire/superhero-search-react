@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { HeroContext } from "../shared/HeroContext";
+import { Button } from "@mui/material";
 
 export default function LoginPage() {
   const [error, setError] = useState(false);
@@ -10,7 +11,7 @@ export default function LoginPage() {
   return (
     <div>
       <h3 className="section-head">Please enter your username and password</h3>
-      <div className="form-section">
+      <div className="form-container">
         <label className="form-label" htmlFor="user">
           Username
         </label>
@@ -26,8 +27,6 @@ export default function LoginPage() {
             username !== account &&
             "No account found. Please try again"}
         </div>
-      </div>
-      <div className="form-section">
         <label className="form-label" htmlFor="password">
           Password:
         </label>
@@ -44,20 +43,20 @@ export default function LoginPage() {
             userPassword !== accountPswd &&
             "No account found. Please try again"}
         </div>
+        <Button
+          variant="contained"
+          onClick={() => {
+            if (username !== account || userPassword !== accountPswd) {
+              setError(true);
+              return;
+            }
+            setPassword(userPassword);
+            setUser(username);
+          }}
+        >
+          Submit
+        </Button>
       </div>
-      <button
-        className="form-button"
-        onClick={() => {
-          if (username !== account || userPassword !== accountPswd) {
-            setError(true);
-            return;
-          }
-          setPassword(userPassword);
-          setUser(username);
-        }}
-      >
-        Submit
-      </button>
     </div>
   );
 }

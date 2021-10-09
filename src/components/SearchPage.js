@@ -2,14 +2,28 @@ import React, { useContext, useEffect, useState } from "react";
 import { HeroContext } from "../shared/HeroContext";
 import useFetch from "../hooks/useFetch";
 import HeroDisplay from "./HeroDisplay";
+import { Button } from "@mui/material";
 
-export default function SearchPage() {
+export default function SearchPage({ alignment }) {
   const [queryInput, setQueryInput] = useState("");
   const [query, setQuery] = useState("");
   const [formError, setFormError] = useState(false);
   const { data, error, loading } = useFetch(query);
-  const { myHeroes, addMyHero, deleteMyHero, search, setSearch } =
-    useContext(HeroContext);
+  const {
+    myHeroes,
+    addMyHero,
+    deleteMyHero,
+    search,
+    setSearch,
+    // showStats,
+    // setShowStats,
+    // clickShowStats,
+    showDiv,
+    // setShowDiv,
+    clickToShow,
+  } = useContext(HeroContext);
+  // const stats = [val.strength, val.intel, val.power];
+  // const listStats = stats.map((stat) => <li>{stat}</li>);
 
   useEffect(() => {
     if (data) {
@@ -19,25 +33,26 @@ export default function SearchPage() {
 
   return (
     <>
-      <h3 className="section-head">Search for Supers!</h3>
-      <div className="form-section">
+      <h1 className="section-head">Search for Supers!</h1>
+      <div className="form-container">
         <label className="form-label" htmlFor="search">
-          Search:
+          Name of Super:
         </label>
         <input
           className="form-input"
           value={queryInput}
           onChange={(e) => setQueryInput(e.target.value)}
           id="search"
-          placeholder="name hero or villain"
+          placeholder="enter character here"
         ></input>
         <div className="form-error">
           {formError &&
             queryInput.length < 3 &&
             "Name must contain at least 3 characters"}
         </div>
-        <button
-          className="form-button"
+        <Button
+          variant="contained"
+          color="primary"
           onClick={() => {
             if (queryInput.length < 3) {
               setFormError(true);
@@ -47,14 +62,11 @@ export default function SearchPage() {
           }}
         >
           Search
-        </button>
+        </Button>
       </div>
       <div>
         {loading && <div>LOADING</div>}
         {error && !loading && <div>{error}</div>}
-        {/* {search && !loading && (
-          <h3 className="section-head">Matching Heroes and Villains</h3>
-        )} */}
         {search &&
           !loading &&
           search.map((val) => (
@@ -80,6 +92,10 @@ export default function SearchPage() {
                 url={val.url}
                 addMyHero={addMyHero}
                 deleteMyHero={deleteMyHero}
+                // showStats={showStats}
+                // clickShowStats={clickShowStats}
+                showDiv={showDiv}
+                clickToShow={clickToShow}
               ></HeroDisplay>
             </>
           ))}

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { HeroContext } from "../shared/HeroContext";
+import { Button } from "@mui/material";
 
 export default function Menu() {
   const { user, password, account, logoutUser } = useContext(HeroContext);
@@ -28,9 +29,9 @@ export default function Menu() {
           <NavLink to="/myVillains" className="link" activeClassName="active">
             My Villains
           </NavLink>
-          <button className="form-button" onClick={logoutUser}>
+          <Button variant="contained" onClick={logoutUser}>
             Logout
-          </button>
+          </Button>
         </>
       )}
     </nav>

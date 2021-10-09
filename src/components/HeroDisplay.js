@@ -1,7 +1,12 @@
 import React from "react";
+// import { useContext } from "react";
+// import { HeroContext } from "../shared/HeroContext";
+import { Button } from "@mui/material";
+import { useState } from "react";
 
 export default function HeroDisplay({
   isMyHero,
+  //   key,
   id,
   name,
   intel,
@@ -10,30 +15,55 @@ export default function HeroDisplay({
   durability,
   power,
   combat,
-  fullName,
-  birthplace,
+  //   fullName,
+  //   birthplace,
   alignment,
-  gender,
-  race,
-  height,
-  weight,
+  //   gender,
+  //   race,
+  //   height,
+  //   weight,
   url,
   addMyHero,
   deleteMyHero,
+  //   showStats,
+  //   clickShowStats,
+  //   setShowStats,
+  //   showDiv,
+  //   clickToShow,
 }) {
+  const [showStats, setShowStats] = useState(false);
+  const clickShowStats = () => setShowStats(true);
+  //   const { showDiv, clickToShow } = useContext(HeroContext);
+
   return (
     <div>
       <h2 className="section-head">{name}</h2>
       <img src={url} alt="hero-url" className="hero-img" />
       {!isMyHero && (
-        <button onClick={() => addMyHero({ id, name, url, alignment })}>
+        <Button
+          variant="contained"
+          onClick={() => addMyHero({ id, name, url, alignment })}
+        >
           Add to My {alignment === "good" ? "Heroes" : "Villains"}
-        </button>
+        </Button>
       )}
       {isMyHero && (
-        <button onClick={() => deleteMyHero(id, { alignment })}>
+        <Button variant="contained" onClick={() => deleteMyHero(id)}>
           Remove from My {alignment === "good" ? "Heroes" : "Villains"}
-        </button>
+        </Button>
+      )}
+      <Button variant="contained" onClick={clickShowStats}>
+        Show Stats
+      </Button>
+      {showStats === true && (
+        <div>
+          <p>Strength: {strength}</p>
+          <p>Durability: {durability}</p>
+          <p>Power: {power}</p>
+          <p>Speed: {speed}</p>
+          <p>Intelligence: {intel}</p>
+          <p>Combat: {combat}</p>
+        </div>
       )}
     </div>
   );

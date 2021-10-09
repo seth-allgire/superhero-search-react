@@ -1,27 +1,35 @@
 import React, { useContext, useState } from "react";
 import { HeroContext } from "../shared/HeroContext";
 import { NavLink } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export default function CreateAccountPage() {
-  const [showDiv, setShowDiv] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [acctUser, setAcctUser] = useState("");
   const [acctPassword, setAcctPassword] = useState("");
   const [error, setError] = useState(false);
-  const onClick = () => setShowDiv(true);
-  const { account, setAccount, accountPswd, setAccountPswd } =
-    useContext(HeroContext);
+
+  const {
+    account,
+    setAccount,
+    accountPswd,
+    setAccountPswd,
+    showDiv,
+    clickToShow,
+  } = useContext(HeroContext);
   return (
     <div>
       <h3 className="section-head">Create an account to Search for Supers!</h3>
-      <button className="form-button" onClick={onClick}>
-        New Account
-      </button>
+      <div className="form-container">
+        <Button variant="contained" onClick={clickToShow}>
+          New Account
+        </Button>
+      </div>
 
       {showDiv === true && (
         <div>
-          <div className="form-section">
+          <div className="form-container">
             <label className="form-label" htmlFor="firstName">
               First name:
             </label>
@@ -37,8 +45,6 @@ export default function CreateAccountPage() {
                 firstName.length < 2 &&
                 "First name must contain at least 2 characters"}
             </div>
-          </div>
-          <div className="form-section">
             <label className="form-label" htmlFor="lastName">
               Last name:
             </label>
@@ -54,8 +60,6 @@ export default function CreateAccountPage() {
                 lastName.length < 2 &&
                 "Last name must contain at least 2 characters"}
             </div>
-          </div>
-          <div className="form-section">
             <label className="form-label" htmlFor="acctUser">
               Create Username:
             </label>
@@ -71,8 +75,6 @@ export default function CreateAccountPage() {
                 acctUser.length < 4 &&
                 "Username must contain at least 4 characters"}
             </div>
-          </div>
-          <div className="form-section">
             <label className="form-label" htmlFor="acctPassword">
               Create Password:
             </label>
@@ -89,34 +91,35 @@ export default function CreateAccountPage() {
                 acctPassword.length < 4 &&
                 "Password must contain at least 4 characters"}
             </div>
-          </div>
 
-          <button
-            className="form-button"
-            onClick={() => {
-              if (
-                firstName.length < 2 ||
-                lastName < 2 ||
-                acctUser.length < 4 ||
-                acctPassword.length < 4
-              ) {
-                setError(true);
-                return;
-              }
-              setAccount(acctUser);
-              setAccountPswd(acctPassword);
-            }}
-          >
-            Submit
-          </button>
+            <Button
+              variant="contained"
+              onClick={() => {
+                if (
+                  firstName.length < 2 ||
+                  lastName < 2 ||
+                  acctUser.length < 4 ||
+                  acctPassword.length < 4
+                ) {
+                  setError(true);
+                  return;
+                }
+                setAccount(acctUser);
+                setAccountPswd(acctPassword);
+              }}
+            >
+              Submit
+            </Button>
+          </div>
           {account && accountPswd && (
             <div className="success">Success! You're ready to Login below!</div>
           )}
         </div>
       )}
-      <div className="form-section">
-        <div>
-          <h3 className="section-head">Already have an account?</h3>
+
+      <div>
+        <h3 className="section-head">Already have an account?</h3>
+        <div className="form-container">
           <div className="link int-link">
             <NavLink to="/login" className="nest-link">
               Go to Login
