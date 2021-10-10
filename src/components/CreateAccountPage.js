@@ -120,11 +120,11 @@ export default function CreateAccountPage() {
       <div>
         <h3 className="section-head">Already have an account?</h3>
         <div className="form-container">
-          <div className="link int-link">
-            <NavLink to="/login" className="nest-link">
-              Go to Login
-            </NavLink>
-          </div>
+          {/* <div className="link int-link"> */}
+          <NavLink to="/login" className="link">
+            Login
+          </NavLink>
+          {/* </div> */}
         </div>
       </div>
     </div>
