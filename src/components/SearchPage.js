@@ -3,6 +3,8 @@ import { HeroContext } from "../shared/HeroContext";
 import useFetch from "../hooks/useFetch";
 import HeroDisplay from "./HeroDisplay";
 import { Button } from "@mui/material";
+import { motion } from "framer-motion";
+import { animationOne, transition } from "../animations";
 
 export default function SearchPage({ alignment }) {
   const [queryInput, setQueryInput] = useState("");
@@ -32,7 +34,13 @@ export default function SearchPage({ alignment }) {
   }, [data, setSearch]);
 
   return (
-    <>
+    <motion.div
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={animationOne}
+      transition={transition}
+    >
       <h1 className="section-head">Search for Supers!</h1>
       <div className="form-container">
         <label className="form-label" htmlFor="search">
@@ -100,6 +108,6 @@ export default function SearchPage({ alignment }) {
             </>
           ))}
       </div>
-    </>
+    </motion.div>
   );
 }

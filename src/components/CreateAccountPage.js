@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { HeroContext } from "../shared/HeroContext";
 import { NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
+import { motion } from "framer-motion";
+import { animationOne, transition } from "../animations";
 
 export default function CreateAccountPage() {
   const [firstName, setFirstName] = useState("");
@@ -19,7 +21,13 @@ export default function CreateAccountPage() {
     clickToShow,
   } = useContext(HeroContext);
   return (
-    <div>
+    <motion.div
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={animationOne}
+      transition={transition}
+    >
       <h3 className="section-head">Create an account to Search for Supers!</h3>
       <div className="form-container">
         <Button variant="contained" onClick={clickToShow}>
@@ -127,6 +135,6 @@ export default function CreateAccountPage() {
           {/* </div> */}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

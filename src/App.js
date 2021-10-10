@@ -14,32 +14,36 @@ import Menu from "./components/Menu";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Header from "./components/Header";
 
+import { AnimatePresence } from "framer-motion";
+
 function App() {
   return (
     <>
-      <Header />
       <Router>
+        <Header />
         <Menu />
-        <Switch>
-          <ProtectedRoute shielded={false} path="/createAcct">
-            <CreateAccountPage />
-          </ProtectedRoute>
-          <ProtectedRoute shielded={false} path="/login">
-            <LoginPage />
-          </ProtectedRoute>
-          <ProtectedRoute shielded={true} path="/search">
-            <SearchPage />
-          </ProtectedRoute>
-          <ProtectedRoute shielded={true} path="/myHeroes">
-            <MyHeroesPage alignment="good" />
-          </ProtectedRoute>
-          <ProtectedRoute shielded={true} path="/myVillains">
-            <MyHeroesPage alignment="bad" />
-          </ProtectedRoute>
-          <Route path="*">
-            <Redirect to="/createAcct"></Redirect>
-          </Route>
-        </Switch>
+        <AnimatePresence>
+          <Switch>
+            <ProtectedRoute shielded={false} path="/createAcct">
+              <CreateAccountPage />
+            </ProtectedRoute>
+            <ProtectedRoute shielded={false} path="/login">
+              <LoginPage />
+            </ProtectedRoute>
+            <ProtectedRoute shielded={true} path="/search">
+              <SearchPage />
+            </ProtectedRoute>
+            <ProtectedRoute shielded={true} path="/myHeroes">
+              <MyHeroesPage alignment="good" />
+            </ProtectedRoute>
+            <ProtectedRoute shielded={true} path="/myVillains">
+              <MyHeroesPage alignment="bad" />
+            </ProtectedRoute>
+            <Route path="*">
+              <Redirect to="/createAcct"></Redirect>
+            </Route>
+          </Switch>
+        </AnimatePresence>
       </Router>
     </>
   );

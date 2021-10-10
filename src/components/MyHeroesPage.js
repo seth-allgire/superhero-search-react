@@ -1,12 +1,28 @@
 import React, { useContext } from "react";
 import { HeroContext } from "../shared/HeroContext";
 import HeroDisplay from "./HeroDisplay";
+import { motion } from "framer-motion";
+import { animationOne, transition } from "../animations";
 
 export default function MyHeroesPage({ alignment }) {
   const { user, myHeroes, deleteMyHero } = useContext(HeroContext);
 
   return (
-    <div className={alignment}>
+    // <motion.div
+    //   initial="out"
+    //   animate="in"
+    //   exit="out"
+    //   variants={animationOne}
+    //   transition={transition}
+    // >
+    <motion.div
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={animationOne}
+      transition={transition}
+      className={alignment}
+    >
       <h1 className="section-head">
         {user}'s {alignment === "good" ? "Heroes" : "Villains"}
       </h1>
@@ -26,6 +42,7 @@ export default function MyHeroesPage({ alignment }) {
           />
         );
       })}
-    </div>
+    </motion.div>
+    // </motion.div>
   );
 }

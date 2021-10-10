@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { HeroContext } from "../shared/HeroContext";
 import { Button } from "@mui/material";
+import { motion } from "framer-motion";
+import { animationOne, transition } from "../animations";
 
 export default function LoginPage() {
   const [error, setError] = useState(false);
@@ -9,7 +11,13 @@ export default function LoginPage() {
   const { account, accountPswd, setUser, setPassword } =
     useContext(HeroContext);
   return (
-    <div>
+    <motion.div
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={animationOne}
+      transition={transition}
+    >
       <h3 className="section-head">Please enter your username and password</h3>
       <div className="form-container">
         <label className="form-label" htmlFor="user">
@@ -57,6 +65,6 @@ export default function LoginPage() {
           Submit
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 }
