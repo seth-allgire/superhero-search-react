@@ -1,14 +1,22 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { HeroContext } from "../shared/HeroContext";
-import { Button } from "@mui/material";
+import { motion } from "framer-motion";
+import { animationTwo, transition } from "../animations";
 
 export default function Menu() {
   const { user, password, account, logoutUser } = useContext(HeroContext);
   return (
     <>
       <div className="relative"></div>
-      <nav className="menu">
+      <motion.nav
+        className="menu"
+        initial="out"
+        animate="end"
+        exit="out"
+        variants={animationTwo}
+        transition={transition}
+      >
         {!account && (
           <NavLink to="/createAcct" className="link">
             Let's Get Started
@@ -36,7 +44,7 @@ export default function Menu() {
             </button>
           </>
         )}
-      </nav>
+      </motion.nav>
     </>
   );
 }

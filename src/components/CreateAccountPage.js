@@ -36,7 +36,13 @@ export default function CreateAccountPage() {
       </div>
 
       {showDiv === true && (
-        <div>
+        <motion.div
+          initial="out"
+          animate="in"
+          exit="out"
+          variants={animationOne}
+          transition={transition}
+        >
           <div className="form-container">
             <label className="form-label" htmlFor="firstName">
               First name:
@@ -78,11 +84,18 @@ export default function CreateAccountPage() {
               id="acctUser"
               placeholder="your alter ego"
             ></input>
-            <div className="form-error">
+            <motion.div
+              className="form-error"
+              initial="out"
+              animate="in"
+              exit="out"
+              variants={animationOne}
+              transition={transition}
+            >
               {error &&
                 acctUser.length < 4 &&
                 "Username must contain at least 4 characters"}
-            </div>
+            </motion.div>
             <label className="form-label" htmlFor="acctPassword">
               Create Password:
             </label>
@@ -94,11 +107,18 @@ export default function CreateAccountPage() {
               id="acctPassword"
               placeholder="your password"
             ></input>
-            <div className="form-error">
+            <motion.div
+              className="form-error"
+              initial="out"
+              animate="in"
+              exit="out"
+              variants={animationOne}
+              transition={transition}
+            >
               {error &&
                 acctPassword.length < 4 &&
                 "Password must contain at least 4 characters"}
-            </div>
+            </motion.div>
 
             <Button
               variant="contained"
@@ -120,9 +140,18 @@ export default function CreateAccountPage() {
             </Button>
           </div>
           {account && accountPswd && (
-            <div className="success">Success! You're ready to Login below!</div>
+            <motion.div
+              className="success"
+              initial="out"
+              animate="in"
+              exit="out"
+              variants={animationOne}
+              transition={transition}
+            >
+              Success! You're ready to Login below!
+            </motion.div>
           )}
-        </div>
+        </motion.div>
       )}
 
       <div>

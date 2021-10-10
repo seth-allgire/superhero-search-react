@@ -10,3 +10,19 @@ export const animationOne = {
 export const transition = {
   duration: 0.4,
 };
+
+export const animationTwo = {
+  in: {
+    opacity: 1,
+    x: -300,
+  },
+  out: {
+    opacity: 0,
+    x: 300,
+  },
+
+  end: {
+    opacity: 1,
+    x: 0,
+  },
+};
