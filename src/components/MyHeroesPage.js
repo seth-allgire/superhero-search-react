@@ -8,13 +8,6 @@ export default function MyHeroesPage({ alignment }) {
   const { user, myHeroes, deleteMyHero } = useContext(HeroContext);
 
   return (
-    // <motion.div
-    //   initial="out"
-    //   animate="in"
-    //   exit="out"
-    //   variants={animationOne}
-    //   transition={transition}
-    // >
     <motion.div
       initial="out"
       animate="in"
@@ -36,13 +29,24 @@ export default function MyHeroesPage({ alignment }) {
             key={val.id}
             id={val.id}
             name={val.name}
-            url={val.url}
+            intel={val.intel}
+            strength={val.strength}
+            speed={val.speed}
+            durability={val.durability}
+            power={val.power}
+            combat={val.combat}
+            fullName={val.fullName}
+            birthplace={val.birthplace}
             alignment={val.alignment}
+            gender={val.gender}
+            race={val.race}
+            height={val.height}
+            weight={val.weight}
+            url={val.url}
             deleteMyHero={deleteMyHero}
           />
         );
       })}
     </motion.div>
-    // </motion.div>
   );
 }

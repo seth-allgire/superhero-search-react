@@ -5,7 +5,7 @@ import { animationOne, transition } from "../animations";
 export default function Header() {
   return (
     <motion.header
-      className="header sticky"
+      className="header"
       initial="out"
       animate="in"
       exit="out"
