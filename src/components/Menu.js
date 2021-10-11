@@ -2,19 +2,19 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { HeroContext } from "../shared/HeroContext";
 import { motion } from "framer-motion";
-import { animationTwo, transition } from "../animations";
+import { animationOne, transition } from "../animations";
 
 export default function Menu() {
   const { user, password, account, logoutUser } = useContext(HeroContext);
   return (
     <>
-      <div className="relative"></div>
+      <div className="menu-container"></div>
       <motion.nav
         className="menu"
         initial="out"
-        animate="end"
+        animate="in"
         exit="out"
-        variants={animationTwo}
+        variants={animationOne}
         transition={transition}
       >
         {!account && (
