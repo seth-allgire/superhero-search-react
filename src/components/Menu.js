@@ -39,7 +39,7 @@ export default function Menu() {
             <NavLink to="/myVillains" className="link" activeClassName="active">
               My Villains
             </NavLink>
-            <button className="logout" onClick={logoutUser}>
+            <button className="logout sticky-link" onClick={logoutUser}>
               Logout
             </button>
           </>

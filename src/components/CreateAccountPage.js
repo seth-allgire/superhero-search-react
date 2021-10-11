@@ -32,15 +32,7 @@ export default function CreateAccountPage() {
             New Account
           </Button>
         </div>
-        <motion.div
-          initial="out"
-          animate="in"
-          exit="out"
-          variants={animationOne}
-          transition={transition}
-        >
-          {AccountFormComponent}
-        </motion.div>
+        <div>{AccountFormComponent}</div>
 
         {account && accountPswd && (
           <motion.div
@@ -51,7 +43,7 @@ export default function CreateAccountPage() {
             variants={animationOne}
             transition={transition}
           >
-            Success! You're ready to Login below!
+            Success! You're ready to Login!
           </motion.div>
         )}
 

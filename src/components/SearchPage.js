@@ -6,26 +6,13 @@ import { Button } from "@mui/material";
 import { motion } from "framer-motion";
 import { animationOne, transition } from "../animations";
 
-export default function SearchPage({ alignment }) {
+export default function SearchPage() {
   const [queryInput, setQueryInput] = useState("");
   const [query, setQuery] = useState("");
   const [formError, setFormError] = useState(false);
   const { data, error, loading } = useFetch(query);
-  const {
-    myHeroes,
-    addMyHero,
-    deleteMyHero,
-    search,
-    setSearch,
-    // showStats,
-    // setShowStats,
-    // clickShowStats,
-    showDiv,
-    // setShowDiv,
-    clickToShow,
-  } = useContext(HeroContext);
-  // const stats = [val.strength, val.intel, val.power];
-  // const listStats = stats.map((stat) => <li>{stat}</li>);
+  const { myHeroes, addMyHero, deleteMyHero, search, setSearch } =
+    useContext(HeroContext);
 
   useEffect(() => {
     if (data) {
@@ -100,10 +87,6 @@ export default function SearchPage({ alignment }) {
                 url={val.url}
                 addMyHero={addMyHero}
                 deleteMyHero={deleteMyHero}
-                // showStats={showStats}
-                // clickShowStats={clickShowStats}
-                showDiv={showDiv}
-                clickToShow={clickToShow}
               ></HeroDisplay>
             </>
           ))}

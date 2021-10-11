@@ -14,11 +14,11 @@ export const transition = {
 export const animationTwo = {
   in: {
     opacity: 1,
-    x: -300,
+    x: -200,
   },
   out: {
     opacity: 0,
-    x: 300,
+    x: 200,
   },
 
   end: {

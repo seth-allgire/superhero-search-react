@@ -15,6 +15,8 @@ body {
   font-weight: bold;
   border-bottom: 10px solid #217fbe;
   margin-bottom: 5px;
+  /* position: sticky;
+  top: 0; */
 }
 
 .header-image {
@@ -43,19 +45,6 @@ body {
   background-color: #217fbe;
 }
 
-/* .sticky {
-  position: sticky;
-  top: 0;
-} */
-
-.hero-container {
-  display: inline-block;
-  padding: 30px;
-  border: 3px solid #d63a1b;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-
 .section-head,
 .success {
   margin-top: 10px;
@@ -64,7 +53,7 @@ body {
 }
 
 .success {
-  color: #d63a1b;
+  color: #42a534;
   font-weight: bold;
 }
 
@@ -76,22 +65,14 @@ body {
 .link {
   margin: 1px;
   font-weight: 600;
-  /* font-family: "Architects Daughter", cursive; */
   text-align: center;
   line-height: 30px;
   color: #f3ece8;
   flex-basis: calc(25% - 4px);
-  /* background-color: #f7db51; */
   border-radius: 5px;
   background-color: #217fbe;
   text-decoration: none;
   position: relative;
-}
-
-.nest-link {
-  /* width: 120px; */
-  color: #f3ece8;
-  text-decoration: none;
 }
 
 .link:hover,
@@ -118,9 +99,7 @@ body {
   margin-right: 5px;
 }
 
-.form-input,
-.form-input:active {
-  /* background-color: #f3ece8; */
+.form-input {
   flex-basis: 25%;
 }
 
@@ -132,24 +111,51 @@ body {
   flex-basis: 100%;
 }
 
-/* .form-button {
-  width: 120px;
-  height: 30px;
-  border: none;
-  font-size: 16px;
-  color: #f3ece8;
-  font-weight: 600;
-  margin-top: 1px;
-  margin-bottom: 10px;
-  background-color: #217fbe;
-  cursor: pointer;
+.hero-container {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 10px 30px 10px 30px;
+  border: 3px solid #d63a1b;
+  border-radius: 10px;
+  margin: 20px 5px;
+  position: relative;
 }
 
-.form-button:hover {
-  background-color: #5e95b9;
-} */
+.image-container {
+  flex-basis: 100%;
+  display: inline-flex;
+  justify-content: center;
+}
 
 .hero-img {
   width: 120px;
   height: auto;
+}
+
+.hero-name {
+  flex-basis: 100%;
+  align-self: center;
+}
+
+.hero-button {
+  flex-basis: calc(100% / 3);
+  margin-top: 10px;
+  height: 30px;
+  font-weight: 600;
+  font-size: inherit;
+  color: #f3ece8;
+  border: none;
+  border-radius: 5px;
+  background-color: #217fbe;
+}
+
+.hero-info-container {
+  flex-basis: calc((100% / 3) - 2px);
+  text-align: center;
+  background-color: #f7db51;
+  border-radius: 5px;
+  color: #144e75;
+  border-right: 1px solid #d63a1b;
+  border-bottom: 1px solid #d63a1b;
+  border-left: 1px solid #d63a1b;
 }
