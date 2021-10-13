@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { HeroProvider } from "./shared/HeroContext";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -15,6 +16,11 @@ const theme = createTheme({
     secondary: {
       main: "#f7db51",
       contrastText: "#144e75",
+    },
+  },
+  components: {
+    MuiAccordion: {
+      defaultProps: {},
     },
   },
 });

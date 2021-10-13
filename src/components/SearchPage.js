@@ -28,7 +28,7 @@ export default function SearchPage() {
       variants={animationOne}
       transition={transition}
     >
-      <h1 className="section-head">Search for Supers!</h1>
+      <h1 className="section-head page-title">Search for Supers!</h1>
       <div className="form-container">
         <label className="form-label" htmlFor="search">
           Name of Super:

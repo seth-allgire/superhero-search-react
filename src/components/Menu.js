@@ -8,43 +8,48 @@ export default function Menu() {
   const { user, password, account, logoutUser } = useContext(HeroContext);
   return (
     <>
-      <div className="menu-container"></div>
-      <motion.nav
-        className="menu"
-        initial="out"
-        animate="in"
-        exit="out"
-        variants={animationOne}
-        transition={transition}
-      >
-        {!account && (
-          <NavLink to="/createAcct" className="link">
-            Let's Get Started
-          </NavLink>
-        )}
-        {account && !user && !password && (
-          <NavLink to="/login" className="link" activeClassName="active">
-            Login
-          </NavLink>
-        )}
+      <div className="menu-container">
+        <motion.nav
+          className="menu"
+          initial="out"
+          animate="in"
+          exit="out"
+          variants={animationOne}
+          transition={transition}
+        >
+          {!account && (
+            <NavLink to="/createAcct" className="link">
+              Get Started
+            </NavLink>
+          )}
+          {account && !user && !password && (
+            <NavLink to="/login" className="link" activeClassName="active">
+              Login
+            </NavLink>
+          )}
 
-        {account && user && password && (
-          <>
-            <NavLink to="/search" className="link" activeClassName="active">
-              Search for Supers
-            </NavLink>
-            <NavLink to="/myHeroes" className="link" activeClassName="active">
-              My Heroes
-            </NavLink>
-            <NavLink to="/myVillains" className="link" activeClassName="active">
-              My Villains
-            </NavLink>
-            <button className="logout" onClick={logoutUser}>
-              Logout
-            </button>
-          </>
-        )}
-      </motion.nav>
+          {account && user && password && (
+            <>
+              <NavLink to="/search" className="link" activeClassName="active">
+                Search
+              </NavLink>
+              <NavLink to="/myHeroes" className="link" activeClassName="active">
+                My Heroes
+              </NavLink>
+              <NavLink
+                to="/myVillains"
+                className="link"
+                activeClassName="active"
+              >
+                My Villains
+              </NavLink>
+              <button className="logout" onClick={logoutUser}>
+                Logout
+              </button>
+            </>
+          )}
+        </motion.nav>
+      </div>
     </>
   );
 }

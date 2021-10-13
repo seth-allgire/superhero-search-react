@@ -16,7 +16,7 @@ export default function MyHeroesPage({ alignment }) {
       transition={transition}
       className={alignment}
     >
-      <h1 className="section-head">
+      <h1 className="section-head page-title">
         {user}'s {alignment === "good" ? "Heroes" : "Villains"}
       </h1>
       {myHeroes.map((val) => {

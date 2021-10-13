@@ -10,6 +10,7 @@ export default function LoginPage() {
   const [userPassword, setUserPassword] = useState("");
   const { account, accountPswd, setUser, setPassword } =
     useContext(HeroContext);
+
   return (
     <motion.div
       initial="out"
@@ -18,7 +19,9 @@ export default function LoginPage() {
       variants={animationOne}
       transition={transition}
     >
-      <h3 className="section-head">Please enter your username and password</h3>
+      <h2 className="section-head page-title">
+        Please enter your username and password
+      </h2>
       <div className="form-container">
         <label className="form-label" htmlFor="user">
           Username

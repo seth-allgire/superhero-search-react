@@ -24,9 +24,7 @@ export default function CreateAccountPage() {
         variants={animationOne}
         transition={transition}
       >
-        <h3 className="section-head">
-          Create an account to Search for Supers!
-        </h3>
+        <h1 className="section-head page-title">Create an Account</h1>
         <div className="form-container">
           <Button variant="contained" onClick={toggleFormVisiblity}>
             New Account
@@ -50,11 +48,9 @@ export default function CreateAccountPage() {
         <div>
           <h3 className="section-head">Already have an account?</h3>
           <div className="form-container">
-            {/* <div className="link int-link"> */}
             <NavLink to="/login" className="link">
               Login
             </NavLink>
-            {/* </div> */}
           </div>
         </div>
       </motion.div>
