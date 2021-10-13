@@ -61,7 +61,7 @@ export default function AccountForm() {
           value={acctUser}
           onChange={(e) => setAcctUser(e.target.value)}
           id="acctUser"
-          placeholder="your alter ego"
+          placeholder="username"
         ></input>
         <motion.div
           className="form-error"
@@ -84,7 +84,7 @@ export default function AccountForm() {
           value={acctPassword}
           onChange={(e) => setAcctPassword(e.target.value)}
           id="acctPassword"
-          placeholder="your password"
+          placeholder="password"
         ></input>
         <motion.div
           className="form-error"

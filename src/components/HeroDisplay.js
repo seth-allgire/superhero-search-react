@@ -98,12 +98,12 @@ export default function HeroDisplay({
               }}
             >
               <Typography>
-                <div>Strength: {strength}</div>
-                <div>Durability: {durability}</div>
-                <div>Power: {power}</div>
-                <div>Speed: {speed}</div>
-                <div>Intelligence: {intel}</div>
-                <div>Combat: {combat}</div>
+                <li>Strength: {strength}</li>
+                <li>Durability: {durability}</li>
+                <li>Power: {power}</li>
+                <li>Speed: {speed}</li>
+                <li>Intelligence: {intel}</li>
+                <li>Combat: {combat}</li>
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -125,10 +125,10 @@ export default function HeroDisplay({
               }}
             >
               <Typography>
-                <div>Race: {race}</div>
-                <div>Gender: {gender}</div>
-                <div>Height: {height}</div>
-                <div>Weight: {weight}</div>
+                <li>Race: {race}</li>
+                <li>Gender: {gender}</li>
+                <li>Height: {height}</li>
+                <li>Weight: {weight}</li>
               </Typography>
             </AccordionDetails>
           </Accordion>
