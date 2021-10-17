@@ -1,28 +1,40 @@
 const express = require("express");
 const router = express.Router();
-const { signup } = require("../models/users.models");
+const { createAccount, login } = require("../models/users.models");
 
-router.post("/signup", (req, res) => {
+router.post("/createAccount", (req, res) => {
   const { username, password } = req.body;
-  if (
-    !username ||
-    !password ||
-    username.length < 4 ||
-    username.length > 20 ||
-    password.length < 8 ||
-    password.length > 20
-  ) {
+  if (validate(username, password)) {
     return res.send({
       success: false,
       error: "Invalid data provided",
       data: null,
     });
   }
-  signup(res, username, password);
+  createAccount(res, username, password);
 });
 
 router.post("/login", (req, res) => {
-  return res.send("LOGIN....");
+  const { username, password } = req.body;
+  if (validate(username, password)) {
+    return res.send({
+      success: false,
+      error: "Invalid data provided",
+      data: null,
+    });
+  }
+  login(res, username, password);
 });
+
+function validate(username, password) {
+  return (
+    !username ||
+    !password ||
+    username.length < 4 ||
+    username.length > 20 ||
+    password.length < 8 ||
+    password.length > 20
+  );
+}
 
 module.exports = router;
