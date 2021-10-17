@@ -18,14 +18,14 @@ export default function Menu() {
           transition={transition}
         >
           {!account && (
-            <NavLink to="/createAcct" className="link">
-              Get Started
-            </NavLink>
-          )}
-          {account && !user && !password && (
-            <NavLink to="/login" className="link" activeClassName="active">
-              Login
-            </NavLink>
+            <>
+              <NavLink to="/createAcct" className="link">
+                Create Account
+              </NavLink>
+              <NavLink to="/login" className="link" activeClassName="active">
+                Login
+              </NavLink>
+            </>
           )}
 
           {account && user && password && (
