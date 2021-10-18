@@ -1,16 +1,29 @@
 const express = require("express");
 const router = express.Router();
+const {
+  addMyHero,
+  deleteMyHero,
+  byUserID,
+} = require("../models/myHeroes.models");
 
 router.post("/add", (req, res) => {
-  return res.send("ADD....");
+  const hero = req.body;
+  if (!hero.name || !hero.url || !hero.hero_id || !hero.user_id) {
+    return res.send({
+      success: false,
+      error: "Invalid data provided",
+      data: null,
+    });
+  }
+  addMyHero(res, hero);
 });
 
 router.delete("/delete/:id", (req, res) => {
-  return res.send("DELETE...");
+  deleteMyHero(res, req.params.id);
 });
 
 router.get("/user/:user_id", (req, res) => {
-  return res.send("BY USER....");
+  byUserID(res, req.params.user_id);
 });
 
 module.exports = router;
