@@ -7,8 +7,8 @@ const myHeroesRoutes = require("./server/routes/myHeroes.routes");
 
 app.use(express.json());
 app.use(express.static(__dirname + "/build"));
-app.use("/users", userRoutes);
-app.use("/myHeroes", myHeroesRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/myHeroes", myHeroesRoutes);
 
 app.get("*", (req, res) => {
   return res.sendFile("/build/index.html", { root: __dirname + "/" });
