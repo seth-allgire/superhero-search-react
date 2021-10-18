@@ -28,12 +28,13 @@ async function deleteMyHero(res, id) {
     return res.send({
       success: true,
       error: null,
-      data: "Successfully deleted.",
+      data: id,
     });
   } catch (e) {
     return res.send({
       success: false,
       error: "Something went wrong.",
+      data: null,
     });
   }
 }

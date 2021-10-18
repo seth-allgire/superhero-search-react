@@ -28,6 +28,7 @@ export default function MyHeroesPage({ alignment }) {
             isMyHero={true}
             key={val.id}
             id={val.id}
+            hero_id={val.hero_id}
             // name={val.name}
             // intel={val.intel}
             // strength={val.strength}

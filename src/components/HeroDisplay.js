@@ -1,29 +1,30 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { animationOne, transition } from "../animations";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
+// import Accordion from "@mui/material/Accordion";
+// import AccordionSummary from "@mui/material/AccordionSummary";
+// import AccordionDetails from "@mui/material/AccordionDetails";
+// import Typography from "@mui/material/Typography";
 
 export default function HeroDisplay({
   isMyHero,
   id,
   name,
-  intel,
-  strength,
-  speed,
-  durability,
-  power,
-  combat,
-  fullName,
-  birthplace,
+  // intel,
+  // strength,
+  // speed,
+  // durability,
+  // power,
+  // combat,
+  // fullName,
+  // birthplace,
   alignment,
-  gender,
-  race,
-  height,
-  weight,
+  // gender,
+  // race,
+  // height,
+  // weight,
   url,
+  hero_id,
   addMyHero,
   deleteMyHero,
 }) {
@@ -53,22 +54,22 @@ export default function HeroDisplay({
               className="hero-button"
               onClick={() =>
                 addMyHero({
-                  id,
+                  hero_id,
                   name,
                   url,
                   alignment,
-                  intel,
-                  strength,
-                  speed,
-                  durability,
-                  power,
-                  combat,
-                  fullName,
-                  birthplace,
-                  gender,
-                  race,
-                  height,
-                  weight,
+                  // intel,
+                  // strength,
+                  // speed,
+                  // durability,
+                  // power,
+                  // combat,
+                  // fullName,
+                  // birthplace,
+                  // gender,
+                  // race,
+                  // height,
+                  // weight,
                 })
               }
             >
@@ -80,7 +81,7 @@ export default function HeroDisplay({
               Remove {alignment === "good" ? "Hero" : "Villain"}
             </button>
           )}
-          <Accordion sx={{ width: 200, marginBottom: 1 }}>
+          {/* <Accordion sx={{ width: 200, marginBottom: 1 }}>
             <AccordionSummary
               sx={{
                 bgcolor: "primary.main",
@@ -131,7 +132,7 @@ export default function HeroDisplay({
                 <li>Weight: {weight}</li>
               </Typography>
             </AccordionDetails>
-          </Accordion>
+          </Accordion> */}
         </div>
       </div>
     </motion.div>

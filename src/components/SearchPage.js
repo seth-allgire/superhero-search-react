@@ -91,9 +91,10 @@ export default function SearchPage() {
           search.map((val) => (
             <>
               <HeroDisplay
-                isMyHero={myHeroes.some((hero) => hero.id === val.id)}
-                key={val.id}
+                isMyHero={myHeroes.some((hero) => hero.hero_id === val.hero_id)}
+                key={val.hero_id}
                 id={val.id}
+                hero_id={val.hero_id}
                 name={val.name}
                 // intel={val.intel}
                 // strength={val.strength}
