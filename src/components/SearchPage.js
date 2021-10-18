@@ -1,24 +1,47 @@
 import React, { useContext, useEffect, useState } from "react";
+import useAxios from "../hooks/useAxios";
 import { HeroContext } from "../shared/HeroContext";
-import useFetch from "../hooks/useFetch";
+// import useFetch from "../hooks/useFetch";
 import HeroDisplay from "./HeroDisplay";
 import { Button } from "@mui/material";
 import { motion } from "framer-motion";
 import { animationOne, transition } from "../animations";
 
+//HOW TO CHANGE THIS TO WORK WITH AXIOS HOOK???????
+const heroURL = `https://superheroapi.com/api.php/10158661060025819/search/`;
+
 export default function SearchPage() {
+  const { myHeroes, addMyHero, deleteMyHero, search, setSearch } =
+    useContext(HeroContext);
   const [queryInput, setQueryInput] = useState("");
   const [query, setQuery] = useState("");
   const [formError, setFormError] = useState(false);
-  const { data, error, loading } = useFetch(query);
-  const { myHeroes, addMyHero, deleteMyHero, search, setSearch } =
-    useContext(HeroContext);
+  const { json, error, loading } = useAxios(query, "get");
 
   useEffect(() => {
-    if (data) {
-      setSearch(data);
+    if (json) {
+      setSearch(() =>
+        json.data.map((hero) => ({
+          hero_id: hero.id,
+          name: hero.name,
+          // intel: hero.powerstats.intelligence,
+          // strength: hero.powerstats.strength,
+          // speed: hero.powerstats.speed,
+          // durability: hero.powerstats.durability,
+          // power: hero.powerstats.power,
+          // combat: hero.powerstats.combat,
+          // fullName: hero.biography["full-name"],
+          // birthplace: hero.biography["place-of-birth"],
+          alignment: hero.biography.alignment,
+          // gender: hero.appearance.gender,
+          // race: hero.appearance.race,
+          // height: hero.appearance.height,
+          // weight: hero.appearance.weight,
+          url: hero.image.url,
+        }))
+      );
     }
-  }, [data, setSearch]);
+  }, [json, setSearch]);
 
   return (
     <motion.div
@@ -38,6 +61,7 @@ export default function SearchPage() {
           value={queryInput}
           onChange={(e) => setQueryInput(e.target.value)}
           id="search"
+          name="search"
           placeholder="enter character here"
         ></input>
         <div className="form-error">
@@ -53,7 +77,7 @@ export default function SearchPage() {
               setFormError(true);
               return;
             }
-            setQuery(queryInput);
+            setQuery(heroURL + queryInput);
           }}
         >
           Search
@@ -71,19 +95,19 @@ export default function SearchPage() {
                 key={val.id}
                 id={val.id}
                 name={val.name}
-                intel={val.intel}
-                strength={val.strength}
-                speed={val.speed}
-                durability={val.durability}
-                power={val.power}
-                combat={val.combat}
-                fullName={val.fullName}
-                birthplace={val.birthplace}
+                // intel={val.intel}
+                // strength={val.strength}
+                // speed={val.speed}
+                // durability={val.durability}
+                // power={val.power}
+                // combat={val.combat}
+                // fullName={val.fullName}
+                // birthplace={val.birthplace}
                 alignment={val.alignment}
-                gender={val.gender}
-                race={val.race}
-                height={val.height}
-                weight={val.weight}
+                // gender={val.gender}
+                // race={val.race}
+                // height={val.height}
+                // weight={val.weight}
                 url={val.url}
                 addMyHero={addMyHero}
                 deleteMyHero={deleteMyHero}

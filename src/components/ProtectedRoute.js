@@ -9,7 +9,7 @@ export default function ProtectedRoute({ children, path, shielded }) {
     [shielded]
   );
 
-  if ((user && shielded) || (!user && !shielded)) {
+  if ((user.username && shielded) || (!user.username && !shielded)) {
     return <Route path={path}>{children}</Route>;
   } else {
     return (

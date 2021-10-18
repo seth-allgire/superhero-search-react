@@ -17,7 +17,7 @@ export default function MyHeroesPage({ alignment }) {
       className={alignment}
     >
       <h1 className="section-head page-title">
-        {user}'s {alignment === "good" ? "Heroes" : "Villains"}
+        {user.username}'s {alignment === "good" ? "Heroes" : "Villains"}
       </h1>
       {myHeroes.map((val) => {
         if (!val.alignment.includes(alignment)) {
@@ -28,20 +28,20 @@ export default function MyHeroesPage({ alignment }) {
             isMyHero={true}
             key={val.id}
             id={val.id}
-            name={val.name}
-            intel={val.intel}
-            strength={val.strength}
-            speed={val.speed}
-            durability={val.durability}
-            power={val.power}
-            combat={val.combat}
-            fullName={val.fullName}
-            birthplace={val.birthplace}
+            // name={val.name}
+            // intel={val.intel}
+            // strength={val.strength}
+            // speed={val.speed}
+            // durability={val.durability}
+            // power={val.power}
+            // combat={val.combat}
+            // fullName={val.fullName}
+            // birthplace={val.birthplace}
             alignment={val.alignment}
-            gender={val.gender}
-            race={val.race}
-            height={val.height}
-            weight={val.weight}
+            // gender={val.gender}
+            // race={val.race}
+            // height={val.height}
+            // weight={val.weight}
             url={val.url}
             deleteMyHero={deleteMyHero}
           />

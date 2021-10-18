@@ -3,10 +3,10 @@ import React, { useCallback, useState } from "react";
 export const HeroContext = React.createContext(null);
 
 export function HeroProvider(props) {
-  const [account, setAccount] = useState("");
-  const [accountPswd, setAccountPswd] = useState("");
-  const [user, setUser] = useState("");
-  const [password, setPassword] = useState("");
+  // const [account, setAccount] = useState("");
+  // const [accountPswd, setAccountPswd] = useState("");
+  const [user, setUser] = useState({});
+  // const [password, setPassword] = useState("");
   const [search, setSearch] = useState([]);
   const [myHeroes, setMyHeroes] = useState([]);
   const [showDiv, setShowDiv] = useState(false);
@@ -29,33 +29,33 @@ export function HeroProvider(props) {
     [setMyHeroes]
   );
 
-  const logoutUser = useCallback(() => {
-    setUser("");
-    setPassword("");
-    setSearch("");
+  const clearState = useCallback(() => {
+    setUser({});
+    setSearch([]);
     setMyHeroes([]);
-  }, [setUser, setPassword, setSearch, setMyHeroes]);
+  }, [setUser, setSearch, setMyHeroes]);
 
   return (
     <HeroContext.Provider
       value={{
-        account,
-        accountPswd,
+        // account,
+        // accountPswd,
         user,
-        password,
+        // password,
         search,
         myHeroes,
         showDiv,
         setShowDiv,
         clickToShow,
-        setAccount,
-        setAccountPswd,
+        // setAccount,
+        // setAccountPswd,
         setUser,
-        setPassword,
+        // setPassword,
         setSearch,
         addMyHero,
         deleteMyHero,
-        logoutUser,
+        // logoutUser,
+        clearState,
       }}
     >
       {props.children}
