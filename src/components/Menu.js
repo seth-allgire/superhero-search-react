@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { animationOne, transition } from "../animations";
 
 export default function Menu() {
-  const { user, password, account, logoutUser } = useContext(HeroContext);
+  const { user, clearState } = useContext(HeroContext);
   return (
     <>
       <div className="menu-container">
@@ -17,9 +17,9 @@ export default function Menu() {
           variants={animationOne}
           transition={transition}
         >
-          {!account && (
+          {!user.username && (
             <>
-              <NavLink to="/createAcct" className="link">
+              <NavLink to="/createAccount" className="link">
                 Create Account
               </NavLink>
               <NavLink to="/login" className="link" activeClassName="active">
@@ -28,7 +28,7 @@ export default function Menu() {
             </>
           )}
 
-          {account && user && password && (
+          {user.username && (
             <>
               <NavLink to="/search" className="link" activeClassName="active">
                 Search
@@ -43,7 +43,7 @@ export default function Menu() {
               >
                 My Villains
               </NavLink>
-              <button className="logout" onClick={logoutUser}>
+              <button className="logout" onClick={clearState}>
                 Logout
               </button>
             </>

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { HeroContext } from "../shared/HeroContext";
+import useAxios from "../hooks/useAxios";
 import { NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
 import { motion } from "framer-motion";
@@ -8,17 +9,21 @@ import { animationOne, transition } from "../animations";
 export default function CreateAccountPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [acctUser, setAcctUser] = useState("");
-  const [acctPassword, setAcctPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  // const [acctUser, setAcctUser] = useState("");
+  // const [acctPassword, setAcctPassword] = useState("");
   const [error, setError] = useState(false);
+  const [userObj, setUserObj] = useState(null);
   const {
-    account,
-    accountPswd,
+    // account,
+    // accountPswd,
     showDiv,
     clickToShow,
-    setAccount,
-    setAccountPswd,
+    // setAccount,
+    // setAccountPswd,
   } = useContext(HeroContext);
+  const { json } = useAxios("/api/users/createAccount", "post", userObj);
 
   return (
     <>
@@ -74,15 +79,15 @@ export default function CreateAccountPage() {
                   lastName.length < 2 &&
                   "Last name must contain at least 2 characters"}
               </div>
-              <label className="form-label" htmlFor="acctUser">
+              <label className="form-label" htmlFor="username">
                 Create Username:
               </label>
               <input
                 className="form-input"
-                value={acctUser}
-                onChange={(e) => setAcctUser(e.target.value)}
-                id="acctUser"
-                placeholder="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                id="username"
+                placeholder="Username"
               ></input>
               <motion.div
                 className="form-error"
@@ -93,19 +98,19 @@ export default function CreateAccountPage() {
                 transition={transition}
               >
                 {error &&
-                  acctUser.length < 4 &&
+                  username.length < 4 &&
                   "Username must contain at least 4 characters"}
               </motion.div>
-              <label className="form-label" htmlFor="acctPassword">
+              <label className="form-label" htmlFor="password">
                 Create Password:
               </label>
               <input
                 className="form-input"
                 type="password"
-                value={acctPassword}
-                onChange={(e) => setAcctPassword(e.target.value)}
-                id="acctPassword"
-                placeholder="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                id="password"
+                placeholder="Password"
               ></input>
               <motion.div
                 className="form-error"
@@ -116,8 +121,8 @@ export default function CreateAccountPage() {
                 transition={transition}
               >
                 {error &&
-                  acctPassword.length < 4 &&
-                  "Password must contain at least 4 characters"}
+                  password.length < 8 &&
+                  "Password must contain at least 8 characters"}
               </motion.div>
 
               <Button
@@ -126,23 +131,24 @@ export default function CreateAccountPage() {
                   if (
                     firstName.length < 2 ||
                     lastName < 2 ||
-                    acctUser.length < 4 ||
-                    acctPassword.length < 4
+                    username.length < 4 ||
+                    password.length < 8
                   ) {
                     setError(true);
                     return;
                   }
-                  setAccount(acctUser);
-                  setAccountPswd(acctPassword);
+                  setUserObj({ username, password });
                 }}
               >
                 Submit
               </Button>
+              <div>{json && json.error}</div>
+              <div>{json && json.data}</div>
             </div>
           </motion.div>
         )}
 
-        {account && accountPswd && (
+        {/* {account && accountPswd && (
           <motion.div
             className="success"
             initial="out"
@@ -153,7 +159,7 @@ export default function CreateAccountPage() {
           >
             Success! You're ready to Login!
           </motion.div>
-        )}
+        )} */}
 
         <div>
           <h3 className="section-head">Already have an account?</h3>

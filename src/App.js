@@ -23,7 +23,7 @@ function App() {
         <Menu />
         <AnimatePresence>
           <Switch>
-            <ProtectedRoute shielded={false} path="/createAcct">
+            <ProtectedRoute shielded={false} path="/createAccount">
               <CreateAccountPage />
             </ProtectedRoute>
             <ProtectedRoute shielded={false} path="/login">
