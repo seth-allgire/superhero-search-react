@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { createAccount, login } = require("../models/users.models");
 
-router.post("/createAccount", (req, res) => {
+router.post("/createAcct", (req, res) => {
   const { username, password } = req.body;
   if (validate(username, password)) {
     return res.send({

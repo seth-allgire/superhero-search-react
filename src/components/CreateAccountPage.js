@@ -23,7 +23,7 @@ export default function CreateAccountPage() {
     // setAccount,
     // setAccountPswd,
   } = useContext(HeroContext);
-  const { json } = useAxios("/api/users/createAccount", "post", userObj);
+  const { json } = useAxios("/api/users/createAcct", "post", userObj);
 
   return (
     <>
