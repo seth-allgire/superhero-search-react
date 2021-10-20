@@ -19,7 +19,11 @@ export default function Menu() {
         >
           {!user.username && (
             <>
-              <NavLink to="/createAccount" className="link">
+              <NavLink
+                to="/createAcct"
+                className="link"
+                activeClassName="active"
+              >
                 Create Account
               </NavLink>
               <NavLink to="/login" className="link" activeClassName="active">

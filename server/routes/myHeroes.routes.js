@@ -8,7 +8,13 @@ const {
 
 router.post("/add", (req, res) => {
   const hero = req.body;
-  if (!hero.name || !hero.url || !hero.hero_id || !hero.user_id) {
+  if (
+    !hero.name ||
+    !hero.url ||
+    !hero.hero_id ||
+    !hero.user_id ||
+    !hero.alignment
+  ) {
     return res.send({
       success: false,
       error: "Invalid data provided",

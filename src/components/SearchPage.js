@@ -7,7 +7,6 @@ import { Button } from "@mui/material";
 import { motion } from "framer-motion";
 import { animationOne, transition } from "../animations";
 
-//HOW TO CHANGE THIS TO WORK WITH AXIOS HOOK???????
 const heroURL = `https://superheroapi.com/api.php/10158661060025819/search/`;
 
 export default function SearchPage() {
@@ -21,9 +20,10 @@ export default function SearchPage() {
   useEffect(() => {
     if (json) {
       setSearch(() =>
-        json.data.map((hero) => ({
+        json.results.map((hero, idx) => ({
           hero_id: hero.id,
           name: hero.name,
+          key: idx,
           // intel: hero.powerstats.intelligence,
           // strength: hero.powerstats.strength,
           // speed: hero.powerstats.speed,
@@ -89,31 +89,29 @@ export default function SearchPage() {
         {search &&
           !loading &&
           search.map((val) => (
-            <>
-              <HeroDisplay
-                isMyHero={myHeroes.some((hero) => hero.hero_id === val.hero_id)}
-                key={val.hero_id}
-                id={val.id}
-                hero_id={val.hero_id}
-                name={val.name}
-                // intel={val.intel}
-                // strength={val.strength}
-                // speed={val.speed}
-                // durability={val.durability}
-                // power={val.power}
-                // combat={val.combat}
-                // fullName={val.fullName}
-                // birthplace={val.birthplace}
-                alignment={val.alignment}
-                // gender={val.gender}
-                // race={val.race}
-                // height={val.height}
-                // weight={val.weight}
-                url={val.url}
-                addMyHero={addMyHero}
-                deleteMyHero={deleteMyHero}
-              ></HeroDisplay>
-            </>
+            <HeroDisplay
+              isMyHero={myHeroes.some((hero) => hero.hero_id === val.hero_id)}
+              key={val.hero_id}
+              id={val.id}
+              hero_id={val.hero_id}
+              name={val.name}
+              // intel={val.intel}
+              // strength={val.strength}
+              // speed={val.speed}
+              // durability={val.durability}
+              // power={val.power}
+              // combat={val.combat}
+              // fullName={val.fullName}
+              // birthplace={val.birthplace}
+              alignment={val.alignment}
+              // gender={val.gender}
+              // race={val.race}
+              // height={val.height}
+              // weight={val.weight}
+              url={val.url}
+              addMyHero={addMyHero}
+              deleteMyHero={deleteMyHero}
+            ></HeroDisplay>
           ))}
       </div>
     </motion.div>

@@ -21,15 +21,16 @@ export default function MyHeroesPage({ alignment }) {
       </h1>
       {myHeroes.map((val) => {
         if (!val.alignment.includes(alignment)) {
-          return <></>;
+          return null;
         }
         return (
           <HeroDisplay
             isMyHero={true}
             key={val.id}
             id={val.id}
+            // key={val.hero_id}
             hero_id={val.hero_id}
-            // name={val.name}
+            name={val.name}
             // intel={val.intel}
             // strength={val.strength}
             // speed={val.speed}
