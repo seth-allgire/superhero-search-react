@@ -11,18 +11,9 @@ export default function CreateAccountPage() {
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const [acctUser, setAcctUser] = useState("");
-  // const [acctPassword, setAcctPassword] = useState("");
   const [error, setError] = useState(false);
   const [userObj, setUserObj] = useState(null);
-  const {
-    // account,
-    // accountPswd,
-    showDiv,
-    clickToShow,
-    // setAccount,
-    // setAccountPswd,
-  } = useContext(HeroContext);
+  const { showDiv, clickToShow } = useContext(HeroContext);
   const { json } = useAxios("/api/users/createAcct", "post", userObj);
 
   return (
@@ -147,19 +138,6 @@ export default function CreateAccountPage() {
             </div>
           </motion.div>
         )}
-
-        {/* {account && accountPswd && (
-          <motion.div
-            className="success"
-            initial="out"
-            animate="in"
-            exit="out"
-            variants={animationOne}
-            transition={transition}
-          >
-            Success! You're ready to Login!
-          </motion.div>
-        )} */}
 
         <div>
           <h3 className="section-head">Already have an account?</h3>
