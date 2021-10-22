@@ -7,13 +7,19 @@ const {
   byUserID,
 } = require("../models/myHeroes.models");
 
-router.post("/add", (req, res) => {
-  const hero = req.body;
+router.post("/add", auth, (req, res) => {
+  const hero = {
+    name: req.body.name,
+    hero_id: req.body.hero_id,
+    url: req.body.url,
+    alignment: req.body.alignment,
+    user_id: req.user.id,
+  };
   if (
     !hero.name ||
     !hero.url ||
     !hero.hero_id ||
-    !hero.user_id ||
+    // !hero.user_id ||
     !hero.alignment
   ) {
     return res.send({
@@ -25,12 +31,12 @@ router.post("/add", (req, res) => {
   addMyHero(res, hero);
 });
 
-router.delete("/delete/:id", (req, res) => {
-  deleteMyHero(res, req.params.id);
+router.delete("/delete/:id", auth, (req, res) => {
+  deleteMyHero(res, req.params.id, req.user.id);
 });
 
 router.get("/user", auth, (req, res) => {
-  byUserID(res, req.user.uuid);
+  byUserID(res, req.user.id);
 });
 
 module.exports = router;

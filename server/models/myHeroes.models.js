@@ -2,7 +2,8 @@ const query = require("../config/mysql.conf");
 
 async function addMyHero(res, hero) {
   try {
-    let { insertId } = await query(
+    // let { insertId } =
+    await query(
       "INSERT INTO myHeroes SET ?",
       hero
       //   "INSERT INTO myHeroes (hero.url, hero.name, hero.user_id, hero.hero_id) VALUES (?, ?, ?, ?)",
@@ -12,7 +13,8 @@ async function addMyHero(res, hero) {
     return res.send({
       success: true,
       error: null,
-      data: { ...hero, id: insertId },
+      data: hero,
+      // { ...hero, id: insertId },
     });
   } catch (e) {
     return res.send({
@@ -23,9 +25,12 @@ async function addMyHero(res, hero) {
   }
 }
 
-async function deleteMyHero(res, id) {
+async function deleteMyHero(res, id, user_id) {
   try {
-    await query("DELETE FROM myHeroes WHERE myHeroes.id = ?", [id]);
+    await query(
+      "DELETE FROM myHeroes WHERE myHeroes.hero_id = ? AND myHeroes.user_id = ?",
+      [id, user_id]
+    );
     return res.send({
       success: true,
       error: null,
@@ -43,7 +48,7 @@ async function deleteMyHero(res, id) {
 async function byUserID(res, user_id) {
   try {
     const myHeroes = await query(
-      "SELECT * FROM myHeroes WHERE myHeroes.user_id = ?",
+      "SELECT name, hero_id, url FROM myHeroes WHERE myHeroes.user_id = ?",
       [user_id]
     );
     return res.send({
