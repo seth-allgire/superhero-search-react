@@ -1,4 +1,5 @@
 const express = require("express");
+const auth = require("../middleware/auth.middleware");
 const router = express.Router();
 const {
   addMyHero,
@@ -28,9 +29,8 @@ router.delete("/delete/:id", (req, res) => {
   deleteMyHero(res, req.params.id);
 });
 
-router.get("/user/:user_id", (req, res) => {
-  console.log(req);
-  byUserID(res, req.params.user_id);
+router.get("/user", auth, (req, res) => {
+  byUserID(res, req.user.uuid);
 });
 
 module.exports = router;

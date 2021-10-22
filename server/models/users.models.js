@@ -55,7 +55,8 @@ async function login(res, username, password) {
         data: null,
       });
     }
-    const token = jwt.sign({ uuid: user.uuid }, process.env.SECRET_KEY, {
+    const payload = { uuid: user.uuid };
+    const token = jwt.sign(payload, process.env.SECRET_KEY, {
       expiresIn: "7 days",
     });
     return res.cookie("jwt", token, { secure: true, httpOnly: true }).send({
@@ -64,7 +65,7 @@ async function login(res, username, password) {
       data: { username: user.username },
     });
   } catch (e) {
-    return res.send({
+    return res.status(500).send({
       success: false,
       error: "Something went wrong. Please try again.",
       data: null,
