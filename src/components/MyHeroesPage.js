@@ -26,9 +26,9 @@ export default function MyHeroesPage({ alignment }) {
         return (
           <HeroDisplay
             isMyHero={true}
-            key={val.id}
-            id={val.id}
-            // key={val.hero_id}
+            // key={val.id}
+            // id={val.id}
+            key={val.hero_id}
             hero_id={val.hero_id}
             name={val.name}
             // intel={val.intel}

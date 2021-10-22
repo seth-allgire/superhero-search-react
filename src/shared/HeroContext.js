@@ -18,11 +18,11 @@ export function HeroProvider(props) {
 
   useEffect(() => {
     async function getMyHeroes() {
-      const { data } = await axios.get(`/api/myHeroes/user/${user.id}`);
+      const { data } = await axios.get(`/api/myHeroes/user`);
       if (!data.success) return;
       setMyHeroes(data.data);
     }
-    if (user.id) {
+    if (user.username) {
       getMyHeroes();
     }
   }, [user]);
@@ -31,7 +31,7 @@ export function HeroProvider(props) {
     async (hero) => {
       const { data } = await axios.post("/api/myHeroes/add", {
         ...hero,
-        user_id: user.id,
+        // user_id: user.id,
       });
       setMyHeroes((curr) => {
         return [...curr, data.data];
@@ -44,7 +44,7 @@ export function HeroProvider(props) {
     async (id) => {
       const { data } = await axios.delete(`/api/myHeroes/delete/${id}`);
       setMyHeroes((curr) => {
-        return curr.filter((val) => val.id != data.data);
+        return curr.filter((val) => val.hero_id != data.data);
       });
     },
     [setMyHeroes]
