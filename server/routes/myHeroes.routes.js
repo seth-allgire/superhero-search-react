@@ -29,6 +29,7 @@ router.delete("/delete/:id", (req, res) => {
 });
 
 router.get("/user/:user_id", (req, res) => {
+  console.log(req);
   byUserID(res, req.params.user_id);
 });
 

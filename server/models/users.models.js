@@ -1,6 +1,7 @@
 const query = require("../config/mysql.conf");
 const bcrypt = require("bcrypt");
 const { v4: uuidv4 } = require("uuid");
+const jwt = require("jsonwebtoken");
 
 async function createAccount(res, username, password) {
   try {
@@ -54,10 +55,13 @@ async function login(res, username, password) {
         data: null,
       });
     }
-    return res.send({
+    const token = jwt.sign({ uuid: user.uuid }, process.env.SECRET_KEY, {
+      expiresIn: "7 days",
+    });
+    return res.cookie("jwt", token, { secure: true, httpOnly: true }).send({
       success: true,
       error: null,
-      data: { username: user.username, id: user.id },
+      data: { username: user.username },
     });
   } catch (e) {
     return res.send({
