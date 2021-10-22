@@ -17,6 +17,18 @@ export function HeroProvider(props) {
   }, [showDiv, setShowDiv]);
 
   useEffect(() => {
+    async function verify() {
+      try {
+        const { data: json } = await axios.get("/api/users/verify");
+        if (json.success) {
+          setUser(json.data);
+        }
+      } catch (e) {}
+    }
+    verify();
+  }, []);
+
+  useEffect(() => {
     async function getMyHeroes() {
       const { data } = await axios.get(`/api/myHeroes/user`);
       if (!data.success) return;
@@ -37,7 +49,7 @@ export function HeroProvider(props) {
         return [...curr, data.data];
       });
     },
-    [setMyHeroes, user]
+    [setMyHeroes]
   );
 
   const deleteMyHero = useCallback(
@@ -50,10 +62,13 @@ export function HeroProvider(props) {
     [setMyHeroes]
   );
 
-  const clearState = useCallback(() => {
-    setUser({});
-    setSearch([]);
-    setMyHeroes([]);
+  const clearState = useCallback(async () => {
+    try {
+      await axios.get("/api/users/logout");
+      setUser({});
+      setSearch([]);
+      setMyHeroes([]);
+    } catch (e) {}
   }, [setUser, setSearch, setMyHeroes]);
 
   return (

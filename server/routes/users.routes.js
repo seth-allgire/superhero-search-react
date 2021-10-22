@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../middleware/auth.middleware");
 const { createAccount, login } = require("../models/users.models");
 
 router.post("/createAcct", (req, res) => {
@@ -14,6 +15,14 @@ router.post("/createAcct", (req, res) => {
   createAccount(res, username, password);
 });
 
+router.get("/verify", auth, (req, res) => {
+  return res.send({
+    success: true,
+    data: { username: req.user.username },
+    error: null,
+  });
+});
+
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
   if (validate(username, password)) {
@@ -24,6 +33,15 @@ router.post("/login", (req, res) => {
     });
   }
   login(res, username, password);
+});
+
+router.get("/logout", (req, res) => {
+  res.clearCookie("jwt");
+  return res.send({
+    success: true,
+    data: "Successfully signed out",
+    error: null,
+  });
 });
 
 function validate(username, password) {
