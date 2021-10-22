@@ -4,10 +4,7 @@ import axios from "axios";
 export const HeroContext = React.createContext(null);
 
 export function HeroProvider(props) {
-  // const [account, setAccount] = useState("");
-  // const [accountPswd, setAccountPswd] = useState("");
   const [user, setUser] = useState({});
-  // const [password, setPassword] = useState("");
   const [search, setSearch] = useState([]);
   const [myHeroes, setMyHeroes] = useState([]);
   const [showDiv, setShowDiv] = useState(false);
@@ -59,23 +56,16 @@ export function HeroProvider(props) {
   return (
     <HeroContext.Provider
       value={{
-        // account,
-        // accountPswd,
         user,
-        // password,
         search,
         myHeroes,
         showDiv,
         setShowDiv,
         clickToShow,
-        // setAccount,
-        // setAccountPswd,
         setUser,
-        // setPassword,
         setSearch,
         addMyHero,
         deleteMyHero,
-        // logoutUser,
         clearState,
       }}
     >

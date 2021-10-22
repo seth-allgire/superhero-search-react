@@ -40,10 +40,6 @@ export default function MyHeroesPage({ alignment }) {
             // fullName={val.fullName}
             // birthplace={val.birthplace}
             alignment={val.alignment}
-            // gender={val.gender}
-            // race={val.race}
-            // height={val.height}
-            // weight={val.weight}
             url={val.url}
             deleteMyHero={deleteMyHero}
           />

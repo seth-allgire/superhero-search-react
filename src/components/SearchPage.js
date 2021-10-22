@@ -33,10 +33,6 @@ export default function SearchPage() {
           // fullName: hero.biography["full-name"],
           // birthplace: hero.biography["place-of-birth"],
           alignment: hero.biography.alignment,
-          // gender: hero.appearance.gender,
-          // race: hero.appearance.race,
-          // height: hero.appearance.height,
-          // weight: hero.appearance.weight,
           url: hero.image.url,
         }))
       );
@@ -104,10 +100,6 @@ export default function SearchPage() {
               // fullName={val.fullName}
               // birthplace={val.birthplace}
               alignment={val.alignment}
-              // gender={val.gender}
-              // race={val.race}
-              // height={val.height}
-              // weight={val.weight}
               url={val.url}
               addMyHero={addMyHero}
               deleteMyHero={deleteMyHero}

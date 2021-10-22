@@ -19,10 +19,6 @@ export default function HeroDisplay({
   // fullName,
   // birthplace,
   alignment,
-  // gender,
-  // race,
-  // height,
-  // weight,
   url,
   hero_id,
   addMyHero,
@@ -66,10 +62,6 @@ export default function HeroDisplay({
                   // combat,
                   // fullName,
                   // birthplace,
-                  // gender,
-                  // race,
-                  // height,
-                  // weight,
                 })
               }
             >
