@@ -69,7 +69,10 @@ export default function HeroDisplay({
             </button>
           )}
           {isMyHero && (
-            <button className="hero-button" onClick={() => deleteMyHero(id)}>
+            <button
+              className="hero-button"
+              onClick={() => deleteMyHero(hero_id)}
+            >
               Remove {alignment === "good" ? "Hero" : "Villain"}
             </button>
           )}

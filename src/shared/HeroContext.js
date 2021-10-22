@@ -14,12 +14,24 @@ export function HeroProvider(props) {
   }, [showDiv, setShowDiv]);
 
   useEffect(() => {
+    async function verify() {
+      try {
+        const { data: json } = await axios.get("/api/users/verify");
+        if (json.success) {
+          setUser(json.data);
+        }
+      } catch (e) {}
+    }
+    verify();
+  }, []);
+
+  useEffect(() => {
     async function getMyHeroes() {
-      const { data } = await axios.get(`/api/myHeroes/user/${user.id}`);
+      const { data } = await axios.get(`/api/myHeroes/user`);
       if (!data.success) return;
       setMyHeroes(data.data);
     }
-    if (user.id) {
+    if (user.username) {
       getMyHeroes();
     }
   }, [user]);
@@ -28,29 +40,32 @@ export function HeroProvider(props) {
     async (hero) => {
       const { data } = await axios.post("/api/myHeroes/add", {
         ...hero,
-        user_id: user.id,
+        // user_id: user.id,
       });
       setMyHeroes((curr) => {
         return [...curr, data.data];
       });
     },
-    [setMyHeroes, user]
+    [setMyHeroes]
   );
 
   const deleteMyHero = useCallback(
     async (id) => {
       const { data } = await axios.delete(`/api/myHeroes/delete/${id}`);
       setMyHeroes((curr) => {
-        return curr.filter((val) => val.id != data.data);
+        return curr.filter((val) => val.hero_id != data.data);
       });
     },
     [setMyHeroes]
   );
 
-  const clearState = useCallback(() => {
-    setUser({});
-    setSearch([]);
-    setMyHeroes([]);
+  const clearState = useCallback(async () => {
+    try {
+      await axios.get("/api/users/logout");
+      setUser({});
+      setSearch([]);
+      setMyHeroes([]);
+    } catch (e) {}
   }, [setUser, setSearch, setMyHeroes]);
 
   return (

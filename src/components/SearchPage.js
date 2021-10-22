@@ -88,7 +88,7 @@ export default function SearchPage() {
             <HeroDisplay
               isMyHero={myHeroes.some((hero) => hero.hero_id === val.hero_id)}
               key={val.hero_id}
-              id={val.id}
+              // id={val.id}
               hero_id={val.hero_id}
               name={val.name}
               // intel={val.intel}
