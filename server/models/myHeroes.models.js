@@ -48,7 +48,7 @@ async function deleteMyHero(res, id, user_id) {
 async function byUserID(res, user_id) {
   try {
     const myHeroes = await query(
-      "SELECT name, hero_id, url FROM myHeroes WHERE myHeroes.user_id = ?",
+      "SELECT name, hero_id, url, alignment FROM myHeroes WHERE myHeroes.user_id = ?",
       [user_id]
     );
     return res.send({
