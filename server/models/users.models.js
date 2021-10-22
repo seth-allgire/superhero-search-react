@@ -1,5 +1,6 @@
 const query = require("../config/mysql.conf");
 const bcrypt = require("bcrypt");
+const { v4: uuidv4 } = require("uuid");
 
 async function createAccount(res, username, password) {
   try {
@@ -14,10 +15,11 @@ async function createAccount(res, username, password) {
       });
     }
     const hash = await bcrypt.hash(password, 10);
-    await query("INSERT INTO users (username, password) VALUES (?,?)", [
-      username,
-      hash,
-    ]);
+    const uuid = uuidv4();
+    await query(
+      "INSERT INTO users (username, password, uuid) VALUES (?, ?, ?)",
+      [username, hash, uuid]
+    );
     return res.send({
       success: true,
       error: null,
