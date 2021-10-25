@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { HeroContext } from "../shared/HeroContext";
 import HeroDisplay from "./HeroDisplay";
 import { motion } from "framer-motion";
-import { animationOne, transition } from "../animations";
+import { opacityAnmtn, transition } from "../animations";
 
 export default function MyHeroesPage({ alignment }) {
   const { user, myHeroes, deleteMyHero } = useContext(HeroContext);
@@ -12,7 +12,7 @@ export default function MyHeroesPage({ alignment }) {
       initial="out"
       animate="in"
       exit="out"
-      variants={animationOne}
+      variants={opacityAnmtn}
       transition={transition}
       className={alignment}
     >

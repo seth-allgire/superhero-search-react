@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { animationOne, transition } from "../animations";
+import { opacityAnmtn, transition } from "../animations";
 // import Accordion from "@mui/material/Accordion";
 // import AccordionSummary from "@mui/material/AccordionSummary";
 // import AccordionDetails from "@mui/material/AccordionDetails";
@@ -29,7 +29,7 @@ export default function HeroDisplay({
       initial="out"
       animate="in"
       exit="out"
-      variants={animationOne}
+      variants={opacityAnmtn}
       transition={transition}
     >
       <div
@@ -37,7 +37,7 @@ export default function HeroDisplay({
         initial="out"
         animate="in"
         exit="out"
-        variants={animationOne}
+        variants={opacityAnmtn}
         transition={transition}
       >
         <h2 className="section-head hero-name">{name}</h2>

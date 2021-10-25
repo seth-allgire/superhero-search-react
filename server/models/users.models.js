@@ -43,7 +43,7 @@ async function login(res, username, password) {
     if (!user) {
       return res.send({
         success: false,
-        error: "Invalid username",
+        error: "Invalid username or password",
         data: null,
       });
     }
@@ -51,7 +51,7 @@ async function login(res, username, password) {
     if (!matches) {
       return res.send({
         success: false,
-        error: "Invalid password",
+        error: "Invalid username or password",
         data: null,
       });
     }

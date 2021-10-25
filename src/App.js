@@ -23,11 +23,11 @@ function App() {
         <Menu />
         <AnimatePresence>
           <Switch>
-            <ProtectedRoute shielded={false} path="/createAcct">
-              <CreateAccountPage />
-            </ProtectedRoute>
             <ProtectedRoute shielded={false} path="/login">
               <LoginPage />
+            </ProtectedRoute>
+            <ProtectedRoute shielded={false} path="/createAcct">
+              <CreateAccountPage />
             </ProtectedRoute>
             <ProtectedRoute shielded={true} path="/search">
               <SearchPage />
@@ -39,7 +39,7 @@ function App() {
               <MyHeroesPage alignment="bad" />
             </ProtectedRoute>
             <Route path="*">
-              <Redirect to="/createAcct"></Redirect>
+              <Redirect to="/login"></Redirect>
             </Route>
           </Switch>
         </AnimatePresence>

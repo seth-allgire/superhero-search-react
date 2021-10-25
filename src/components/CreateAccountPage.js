@@ -4,7 +4,7 @@ import useAxios from "../hooks/useAxios";
 import { NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
 import { motion } from "framer-motion";
-import { animationOne, transition } from "../animations";
+import { opacityAnmtn, transition } from "../animations";
 
 export default function CreateAccountPage() {
   const [firstName, setFirstName] = useState("");
@@ -22,7 +22,7 @@ export default function CreateAccountPage() {
         initial="out"
         animate="in"
         exit="out"
-        variants={animationOne}
+        variants={opacityAnmtn}
         transition={transition}
       >
         <h1 className="section-head page-title">Create an Account</h1>
@@ -36,7 +36,7 @@ export default function CreateAccountPage() {
             initial="out"
             animate="in"
             exit="out"
-            variants={animationOne}
+            variants={opacityAnmtn}
             transition={transition}
           >
             <div className="form-container">
@@ -85,7 +85,7 @@ export default function CreateAccountPage() {
                 initial="out"
                 animate="in"
                 exit="out"
-                variants={animationOne}
+                variants={opacityAnmtn}
                 transition={transition}
               >
                 {error &&
@@ -108,7 +108,7 @@ export default function CreateAccountPage() {
                 initial="out"
                 animate="in"
                 exit="out"
-                variants={animationOne}
+                variants={opacityAnmtn}
                 transition={transition}
               >
                 {error &&

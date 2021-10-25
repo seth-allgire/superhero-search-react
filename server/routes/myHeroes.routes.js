@@ -15,13 +15,7 @@ router.post("/add", auth, (req, res) => {
     alignment: req.body.alignment,
     user_id: req.user.id,
   };
-  if (
-    !hero.name ||
-    !hero.url ||
-    !hero.hero_id ||
-    // !hero.user_id ||
-    !hero.alignment
-  ) {
+  if (!hero.name || !hero.url || !hero.hero_id || !hero.alignment) {
     return res.send({
       success: false,
       error: "Invalid data provided",

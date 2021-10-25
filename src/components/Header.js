@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { animationOne, transition } from "../animations";
+import { opacityAnmtn, transition } from "../animations";
 
 export default function Header() {
   return (
@@ -9,7 +9,7 @@ export default function Header() {
       initial="out"
       animate="in"
       exit="out"
-      variants={animationOne}
+      variants={opacityAnmtn}
       transition={transition}
     >
       <div className="header-container">

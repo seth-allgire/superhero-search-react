@@ -2,19 +2,12 @@ const query = require("../config/mysql.conf");
 
 async function addMyHero(res, hero) {
   try {
-    // let { insertId } =
-    await query(
-      "INSERT INTO myHeroes SET ?",
-      hero
-      //   "INSERT INTO myHeroes (hero.url, hero.name, hero.user_id, hero.hero_id) VALUES (?, ?, ?, ?)",
-      //   [hero.url, hero.name, hero.user_id, hero.hero_id]
-    );
+    await query("INSERT INTO myHeroes SET ?", hero);
 
     return res.send({
       success: true,
       error: null,
       data: hero,
-      // { ...hero, id: insertId },
     });
   } catch (e) {
     return res.send({

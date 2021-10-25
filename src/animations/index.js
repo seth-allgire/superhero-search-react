@@ -1,4 +1,4 @@
-export const animationOne = {
+export const opacityAnmtn = {
   in: {
     opacity: 1,
   },

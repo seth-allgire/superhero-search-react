@@ -5,7 +5,7 @@ import { HeroContext } from "../shared/HeroContext";
 import HeroDisplay from "./HeroDisplay";
 import { Button } from "@mui/material";
 import { motion } from "framer-motion";
-import { animationOne, transition } from "../animations";
+import { opacityAnmtn, transition } from "../animations";
 
 const heroURL = `https://superheroapi.com/api.php/10158661060025819/search/`;
 
@@ -44,7 +44,7 @@ export default function SearchPage() {
       initial="out"
       animate="in"
       exit="out"
-      variants={animationOne}
+      variants={opacityAnmtn}
       transition={transition}
     >
       <h1 className="section-head page-title">Search for Supers!</h1>

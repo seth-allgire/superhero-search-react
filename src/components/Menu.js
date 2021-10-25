@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { HeroContext } from "../shared/HeroContext";
 import { motion } from "framer-motion";
-import { animationOne, transition } from "../animations";
+import { opacityAnmtn, transition } from "../animations";
 
 export default function Menu() {
   const { user, clearState } = useContext(HeroContext);
@@ -14,20 +14,20 @@ export default function Menu() {
           initial="out"
           animate="in"
           exit="out"
-          variants={animationOne}
+          variants={opacityAnmtn}
           transition={transition}
         >
           {!user.username && (
             <>
+              <NavLink to="/login" className="link" activeClassName="active">
+                Login
+              </NavLink>
               <NavLink
                 to="/createAcct"
                 className="link"
                 activeClassName="active"
               >
-                Create Account
-              </NavLink>
-              <NavLink to="/login" className="link" activeClassName="active">
-                Login
+                Sign Up
               </NavLink>
             </>
           )}
