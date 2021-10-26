@@ -8,27 +8,6 @@ import useAxios from "../hooks/useAxios";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
 export default function LoginPage() {
-  const button1Style = {
-    bgcolor: "secondary.main",
-    color: "#144e75",
-    "&:hover": {
-      backgroundColor: "#fff1aa",
-    },
-
-    fontWeight: "600",
-  };
-  const button2Style = {
-    color: "#f3ece8",
-    padding: "0px",
-    lineHeight: "16px",
-    ml: "10px",
-  };
-  const errorStyle = {
-    mt: "2px",
-    paddingTop: "0px",
-    paddingBottom: "0px",
-    color: "#d63a1b",
-  };
   const [error, setError] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -70,13 +49,8 @@ export default function LoginPage() {
 
             <div className="form-error">
               {error && username.length < 4 && (
-                <Alert
-                  severity="error"
-                  sx={{
-                    ...errorStyle,
-                  }}
-                >
-                  Username must be at least 4 characters!
+                <Alert severity="error">
+                  Username must be at least 4 characters
                 </Alert>
               )}
             </div>
@@ -93,22 +67,14 @@ export default function LoginPage() {
             ></input>
             <div className="form-error">
               {error && password.length < 8 && (
-                <Alert
-                  severity="error"
-                  sx={{
-                    ...errorStyle,
-                  }}
-                >
-                  Password must be at least 8 characters!
+                <Alert severity="error">
+                  Password must be at least 8 characters
                 </Alert>
               )}
             </div>
             <div className="form-container">
               <Button
-                sx={{
-                  ...button1Style,
-                }}
-                variant="contained"
+                variant="containedPrimary"
                 onClick={() => {
                   if (username.length < 4 || password.length < 8) {
                     setError(true);
@@ -121,27 +87,12 @@ export default function LoginPage() {
                 Submit
               </Button>
             </div>
-            {/* </div> */}
             <div className="form-error">
-              {json && (
-                <Alert
-                  severity="error"
-                  sx={{
-                    ...errorStyle,
-                  }}
-                >
-                  {json.error}
-                </Alert>
-              )}
+              {json && <Alert severity="error">{json.error}</Alert>}
             </div>
             <div className="form-container">
               <div>Don't have an account?</div>
-              <Button
-                href="/createAcct"
-                sx={{
-                  ...button2Style,
-                }}
-              >
+              <Button href="/createAcct" variant="containedSecondary">
                 Sign Up
               </Button>
             </div>

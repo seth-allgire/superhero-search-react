@@ -64,11 +64,6 @@ body {
   margin-top: 50px;
 }
 
-.success {
-  color: #42a534;
-  font-weight: bold;
-}
-
 .menu {
   display: flex;
   flex-wrap: wrap;
@@ -99,11 +94,12 @@ body {
 }
 
 .form-surround {
-  height: 375px;
+  height: fit-content;
   max-width: 350px;
   margin-top: 50px;
   background-color: #217fbe;
   padding-top: 30px;
+  padding-bottom: 50px;
   border: 3px solid #d63a1b;
   border-radius: 5px;
 }
