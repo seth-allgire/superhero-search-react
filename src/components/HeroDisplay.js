@@ -32,51 +32,54 @@ export default function HeroDisplay({
       variants={opacityAnmtn}
       transition={transition}
     >
-      <div
-        className="hero-container"
-        initial="out"
-        animate="in"
-        exit="out"
-        variants={opacityAnmtn}
-        transition={transition}
-      >
-        <h2 className="section-head hero-name">{name}</h2>
-        <div className="image-container">
-          <img src={url} alt="hero-url" className="hero-img" />
-        </div>
-        <div className="hero-button-container">
-          {!isMyHero && (
-            <button
-              className="hero-button"
-              onClick={() =>
-                addMyHero({
-                  hero_id,
-                  name,
-                  url,
-                  alignment,
-                  // intel,
-                  // strength,
-                  // speed,
-                  // durability,
-                  // power,
-                  // combat,
-                  // fullName,
-                  // birthplace,
-                })
-              }
-            >
-              Save {alignment === "good" ? "Hero" : "Villain"}
-            </button>
-          )}
-          {isMyHero && (
-            <button
-              className="hero-button"
-              onClick={() => deleteMyHero(hero_id)}
-            >
-              Remove {alignment === "good" ? "Hero" : "Villain"}
-            </button>
-          )}
-          {/* <Accordion sx={{ width: 200, marginBottom: 1 }}>
+      <div className="form-container">
+        <div className="form-surround hero-surround">
+          <div className="form-container">
+            {/* <div
+            className="form-container"
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={opacityAnmtn}
+            transition={transition}
+          > */}
+            <h2 className="section-head hero-name">{name}</h2>
+            <div className="image-container">
+              <img src={url} alt="hero-url" className="hero-img" />
+            </div>
+            <div className="hero-button-container">
+              {!isMyHero && (
+                <button
+                  className="hero-button"
+                  onClick={() =>
+                    addMyHero({
+                      hero_id,
+                      name,
+                      url,
+                      alignment,
+                      // intel,
+                      // strength,
+                      // speed,
+                      // durability,
+                      // power,
+                      // combat,
+                      // fullName,
+                      // birthplace,
+                    })
+                  }
+                >
+                  Save {alignment === "good" ? "Hero" : "Villain"}
+                </button>
+              )}
+              {isMyHero && (
+                <button
+                  className="hero-button"
+                  onClick={() => deleteMyHero(hero_id)}
+                >
+                  Remove {alignment === "good" ? "Hero" : "Villain"}
+                </button>
+              )}
+              {/* <Accordion sx={{ width: 200, marginBottom: 1 }}>
             <AccordionSummary
               sx={{
                 bgcolor: "primary.main",
@@ -128,6 +131,8 @@ export default function HeroDisplay({
               </Typography>
             </AccordionDetails>
           </Accordion> */}
+            </div>
+          </div>
         </div>
       </div>
     </motion.div>

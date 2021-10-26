@@ -104,6 +104,12 @@ body {
   border-radius: 5px;
 }
 
+.hero-surround {
+  background-color: #f3ece8;
+  max-width: 400px;
+  padding-bottom: 20px;
+}
+
 .form-container {
   display: flex;
   color: #f3ece8;
@@ -142,16 +148,17 @@ body {
   flex-basis: 100%;
 }
 
-.hero-container {
+/* .hero-container {
   display: flex;
   flex-flow: row wrap;
+  width: fit-content;
   padding: 10px 30px 10px 30px;
   border: 3px solid #d63a1b;
   border-radius: 10px;
   margin: 20px 50px;
   position: relative;
   justify-content: center;
-}
+} */
 
 .image-container {
   flex-basis: 100%;
@@ -162,6 +169,7 @@ body {
 .hero-img {
   width: 175px;
   border: 2px solid #d63a1b;
+  border-radius: 5px;
   height: auto;
   margin-bottom: 10px;
 }
