@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import useAxios from "../hooks/useAxios";
 import { HeroContext } from "../shared/HeroContext";
-// import useFetch from "../hooks/useFetch";
 import HeroDisplay from "./HeroDisplay";
 import { Button } from "@mui/material";
 import { motion } from "framer-motion";
 import { opacityAnmtn, transition } from "../animations";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 const heroURL = `https://superheroapi.com/api.php/10158661060025819/search/`;
 
@@ -47,37 +48,45 @@ export default function SearchPage() {
       variants={opacityAnmtn}
       transition={transition}
     >
-      <h1 className="section-head page-title">Search for Supers!</h1>
+      {/* <h1 className="section-head page-title">Search for Supers!</h1> */}
       <div className="form-container">
-        <label className="form-label" htmlFor="search">
-          Name of Super:
-        </label>
-        <input
-          className="form-input"
-          value={queryInput}
-          onChange={(e) => setQueryInput(e.target.value)}
-          id="search"
-          name="search"
-          placeholder="enter character here"
-        ></input>
-        <div className="form-error">
-          {formError &&
-            queryInput.length < 3 &&
-            "Name must contain at least 3 characters"}
+        <div className="form-surround">
+          <div className="form-container form-title icon">
+            <SearchOutlinedIcon sx={{ fontSize: "50px" }} />
+          </div>
+          <div className="form-container form-title">Search for Supers</div>
+          <div className="form-container">
+            <label className="form-label" htmlFor="search">
+              Name of Super:
+            </label>
+            <input
+              className="form-input"
+              value={queryInput}
+              onChange={(e) => setQueryInput(e.target.value)}
+              id="search"
+              name="search"
+              placeholder="enter character here"
+            ></input>
+            <div className="form-error">
+              {formError &&
+                queryInput.length < 3 &&
+                "Name must contain at least 3 characters"}
+            </div>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                if (queryInput.length < 3) {
+                  setFormError(true);
+                  return;
+                }
+                setQuery(heroURL + queryInput);
+              }}
+            >
+              Search
+            </Button>
+          </div>
         </div>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => {
-            if (queryInput.length < 3) {
-              setFormError(true);
-              return;
-            }
-            setQuery(heroURL + queryInput);
-          }}
-        >
-          Search
-        </Button>
       </div>
       <div>
         {loading && <div>LOADING</div>}

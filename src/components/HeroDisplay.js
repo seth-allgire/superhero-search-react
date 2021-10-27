@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { opacityAnmtn, transition } from "../animations";
+import { Button } from "@mui/material";
 // import Accordion from "@mui/material/Accordion";
 // import AccordionSummary from "@mui/material/AccordionSummary";
 // import AccordionDetails from "@mui/material/AccordionDetails";
@@ -43,14 +44,14 @@ export default function HeroDisplay({
             variants={opacityAnmtn}
             transition={transition}
           > */}
-            <h2 className="section-head hero-name">{name}</h2>
+            <h2 className="section-head form-label">{name}</h2>
             <div className="image-container">
               <img src={url} alt="hero-url" className="hero-img" />
             </div>
             <div className="hero-button-container">
               {!isMyHero && (
-                <button
-                  className="hero-button"
+                <Button
+                  variant="containedPrimary"
                   onClick={() =>
                     addMyHero({
                       hero_id,
@@ -68,16 +69,18 @@ export default function HeroDisplay({
                     })
                   }
                 >
+                  {" "}
                   Save {alignment === "good" ? "Hero" : "Villain"}
-                </button>
+                  {/* // </button> */}
+                </Button>
               )}
               {isMyHero && (
-                <button
-                  className="hero-button"
+                <Button
+                  variant="containedPrimary"
                   onClick={() => deleteMyHero(hero_id)}
                 >
                   Remove {alignment === "good" ? "Hero" : "Villain"}
-                </button>
+                </Button>
               )}
               {/* <Accordion sx={{ width: 200, marginBottom: 1 }}>
             <AccordionSummary

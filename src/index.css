@@ -105,7 +105,7 @@ body {
 }
 
 .hero-surround {
-  background-color: #f3ece8;
+  background-color: #217fbe;
   max-width: 400px;
   padding-bottom: 20px;
 }
@@ -171,7 +171,7 @@ body {
   border: 2px solid #d63a1b;
   border-radius: 5px;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .hero-name,

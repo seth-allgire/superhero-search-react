@@ -5,7 +5,7 @@ import { HeroContext } from "../shared/HeroContext";
 export default function ProtectedRoute({ children, path, shielded }) {
   const { user } = useContext(HeroContext);
   const redirectTo = useMemo(
-    () => (shielded ? "/createAcct" : "/search"),
+    () => (shielded ? "/login" : "/search"),
     [shielded]
   );
 

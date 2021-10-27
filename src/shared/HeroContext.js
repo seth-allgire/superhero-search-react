@@ -7,11 +7,6 @@ export function HeroProvider(props) {
   const [user, setUser] = useState({});
   const [search, setSearch] = useState([]);
   const [myHeroes, setMyHeroes] = useState([]);
-  const [showDiv, setShowDiv] = useState(false);
-
-  const clickToShow = useCallback(() => {
-    setShowDiv(!showDiv);
-  }, [showDiv, setShowDiv]);
 
   useEffect(() => {
     async function verify() {
@@ -40,7 +35,6 @@ export function HeroProvider(props) {
     async (hero) => {
       const { data } = await axios.post("/api/myHeroes/add", {
         ...hero,
-        // user_id: user.id,
       });
       setMyHeroes((curr) => {
         return [...curr, data.data];
@@ -74,9 +68,6 @@ export function HeroProvider(props) {
         user,
         search,
         myHeroes,
-        showDiv,
-        setShowDiv,
-        clickToShow,
         setUser,
         setSearch,
         addMyHero,
