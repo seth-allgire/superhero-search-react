@@ -1,5 +1,9 @@
 body {
   margin: 2px;
+  background-image: url("https://cdn.wallpapersafari.com/44/47/og3i5V.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: screen;
   background-color: #f3ece8;
   font-family: Arial, Helvetica, sans-serif;
   padding-bottom: 100px;
@@ -9,22 +13,24 @@ body {
   height: 90px;
   line-height: 100px;
   background-color: #d63a1b;
-  padding-left: 15px;
   color: #f3ece8;
   font-size: 40px;
   font-weight: bold;
-  border-bottom: 10px solid #217fbe;
   position: sticky;
   top: 0;
   z-index: 1;
 }
 
-.header-image {
-  height: 75px;
+.header-title {
   position: absolute;
-  right: 10px;
-  top: 10px;
-  transform: rotate(20deg);
+  left: 20px;
+}
+
+.show-user {
+  position: absolute;
+  right: 45px;
+  top: 9px;
+  font-size: 16px;
 }
 
 .header-container {
@@ -33,10 +39,11 @@ body {
 
 .menu-container {
   position: sticky;
-  top: 100px;
+  top: 90px;
   z-index: 1;
-  background-color: #f3ece8;
-  border-top: 3px solid #f3ece8;
+  background-color: #d63a1b;
+  border-top: 3px solid #d63a1b;
+  border-bottom: 3px solid #d63a1b;
 }
 
 .logout {
@@ -53,15 +60,13 @@ body {
   background-color: #217fbe;
 }
 
-.section-head,
-.success {
-  margin-top: 10px;
-  color: #144e75;
-  text-align: center;
-}
-
 .page-title {
   margin-top: 50px;
+  text-align: center;
+  color: #f3ece8;
+  background-color: #217fbe;
+  width: fit-content;
+  padding: 20px;
 }
 
 .menu {
@@ -91,6 +96,7 @@ body {
 .active:hover {
   background-color: #f7db51;
   color: #144e75;
+  cursor: default;
 }
 
 .form-surround {
@@ -100,8 +106,6 @@ body {
   background-color: #217fbe;
   padding-top: 30px;
   padding-bottom: 50px;
-  border: 3px solid #d63a1b;
-  border-radius: 5px;
 }
 
 .hero-surround {
@@ -148,18 +152,6 @@ body {
   flex-basis: 100%;
 }
 
-/* .hero-container {
-  display: flex;
-  flex-flow: row wrap;
-  width: fit-content;
-  padding: 10px 30px 10px 30px;
-  border: 3px solid #d63a1b;
-  border-radius: 10px;
-  margin: 20px 50px;
-  position: relative;
-  justify-content: center;
-} */
-
 .image-container {
   flex-basis: 100%;
   display: inline-flex;
@@ -167,11 +159,10 @@ body {
 }
 
 .hero-img {
-  width: 175px;
-  border: 2px solid #d63a1b;
-  border-radius: 5px;
+  width: 200px;
   height: auto;
   margin-bottom: 20px;
+  box-shadow: 0px 0px 10px black;
 }
 
 .hero-name,
@@ -190,4 +181,9 @@ body {
   padding-left: 16px;
   text-align: left;
   margin-bottom: 7px;
+}
+
+.red-border {
+  border: 3px solid #d63a1b;
+  border-radius: 5px;
 }

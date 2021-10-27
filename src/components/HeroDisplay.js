@@ -34,7 +34,7 @@ export default function HeroDisplay({
       transition={transition}
     >
       <div className="form-container">
-        <div className="form-surround hero-surround">
+        <div className="form-surround hero-surround red-border">
           <div className="form-container">
             {/* <div
             className="form-container"

@@ -5,7 +5,6 @@ import HeroDisplay from "./HeroDisplay";
 import { Button } from "@mui/material";
 import { motion } from "framer-motion";
 import { opacityAnmtn, transition } from "../animations";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 const heroURL = `https://superheroapi.com/api.php/10158661060025819/search/`;
@@ -38,6 +37,8 @@ export default function SearchPage() {
         }))
       );
     }
+
+    console.log(json);
   }, [json, setSearch]);
 
   return (
@@ -50,15 +51,15 @@ export default function SearchPage() {
     >
       {/* <h1 className="section-head page-title">Search for Supers!</h1> */}
       <div className="form-container">
-        <div className="form-surround">
+        <div className="form-surround red-border">
           <div className="form-container form-title icon">
             <SearchOutlinedIcon sx={{ fontSize: "50px" }} />
           </div>
           <div className="form-container form-title">Search for Supers</div>
           <div className="form-container">
-            <label className="form-label" htmlFor="search">
+            {/* <label className="form-label" htmlFor="search">
               Name of Super:
-            </label>
+            </label> */}
             <input
               className="form-input"
               value={queryInput}

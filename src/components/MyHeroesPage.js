@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { opacityAnmtn, transition } from "../animations";
 
 export default function MyHeroesPage({ alignment }) {
-  const { user, myHeroes, deleteMyHero } = useContext(HeroContext);
+  const { myHeroes, deleteMyHero } = useContext(HeroContext);
 
   return (
     <motion.div
@@ -14,11 +14,15 @@ export default function MyHeroesPage({ alignment }) {
       exit="out"
       variants={opacityAnmtn}
       transition={transition}
-      className={alignment}
+      // className={alignment}
     >
-      <h1 className="section-head page-title">
-        {user.username}'s {alignment === "good" ? "Heroes" : "Villains"}
-      </h1>
+      <div className="form-container">
+        <div className="page-title form-title red-border">
+          {/* <h1 className="section-head page-title red-border"> */}
+          My {alignment === "good" ? "Heroes" : "Villains"}
+          {/* </h1> */}
+        </div>
+      </div>
       {myHeroes.map((val) => {
         if (!val.alignment.includes(alignment)) {
           return null;

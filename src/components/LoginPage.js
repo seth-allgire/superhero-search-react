@@ -29,7 +29,7 @@ export default function LoginPage() {
       transition={transition}
     >
       <div className="form-container">
-        <div className="form-surround">
+        <div className="form-surround red-border">
           <div className="form-container form-title icon">
             <PersonOutlineOutlinedIcon sx={{ fontSize: "50px" }} />
           </div>

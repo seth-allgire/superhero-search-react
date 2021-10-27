@@ -1,6 +1,4 @@
-import React from "react";
 import { createTheme } from "@mui/material/styles";
-// import { ThemeProvider } from "@emotion/react";
 
 const HeroTheme = createTheme({
   palette: {
@@ -55,6 +53,20 @@ const HeroTheme = createTheme({
     },
     MuiAccordion: {
       defaultProps: {},
+    },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          width: "22px",
+          height: "22px",
+          backgroundColor: "#f7db51",
+          color: "#144e75",
+          position: "absolute",
+          top: "38px",
+          left: "5px",
+          fontSize: "12px",
+        },
+      },
     },
   },
 });
