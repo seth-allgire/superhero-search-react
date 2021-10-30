@@ -1,11 +1,28 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HeroContext } from "../shared/HeroContext";
 import { motion } from "framer-motion";
 import { opacityAnmtn, transition } from "../animations";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { Button } from "@mui/material";
 
 export default function Menu() {
   const { user, clearState } = useContext(HeroContext);
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 500) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <>
       <div className="menu-container">
@@ -54,6 +71,25 @@ export default function Menu() {
           )}
         </motion.nav>
       </div>
+      {showButton && (
+        <motion.div
+          initial="out"
+          animate="in"
+          exit="out"
+          variants={opacityAnmtn}
+          transition={transition}
+        >
+          <Button
+            onClick={scrollToTop}
+            sx={{ position: "fixed", bottom: "20px", right: "20px" }}
+            variant="contained"
+            color="primary"
+            endIcon={<ArrowUpwardIcon />}
+          >
+            Top
+          </Button>
+        </motion.div>
+      )}
     </>
   );
 }
