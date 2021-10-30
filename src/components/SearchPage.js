@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import useAxios from "../hooks/useAxios";
 import { HeroContext } from "../shared/HeroContext";
 import HeroDisplay from "./HeroDisplay";
-import { Button } from "@mui/material";
+import { Button, Alert, CircularProgress } from "@mui/material";
 import { motion } from "framer-motion";
 import { opacityAnmtn, transition } from "../animations";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -19,27 +19,29 @@ export default function SearchPage() {
 
   useEffect(() => {
     if (json) {
+      console.log(json);
       setSearch(() =>
         json.results.map((hero, idx) => ({
           hero_id: hero.id,
           name: hero.name,
           key: idx,
-          // intel: hero.powerstats.intelligence,
-          // strength: hero.powerstats.strength,
-          // speed: hero.powerstats.speed,
-          // durability: hero.powerstats.durability,
-          // power: hero.powerstats.power,
-          // combat: hero.powerstats.combat,
-          // fullName: hero.biography["full-name"],
-          // birthplace: hero.biography["place-of-birth"],
+          intel: hero.powerstats.intelligence,
+          strength: hero.powerstats.strength,
+          speed: hero.powerstats.speed,
+          durability: hero.powerstats.durability,
+          power: hero.powerstats.power,
+          combat: hero.powerstats.combat,
+          alterEgo: hero.biography["full-name"],
+          publisher: hero.biography.publisher,
+          firstAppear: hero.biography["first-appearance"],
           alignment: hero.biography.alignment,
           url: hero.image.url,
         }))
       );
-    }
+    } else if (json === error) return;
 
     console.log(json);
-  }, [json, setSearch]);
+  }, [json, setSearch, error]);
 
   return (
     <motion.div
@@ -49,7 +51,6 @@ export default function SearchPage() {
       variants={opacityAnmtn}
       transition={transition}
     >
-      {/* <h1 className="section-head page-title">Search for Supers!</h1> */}
       <div className="form-container">
         <div className="form-surround red-border">
           <div className="form-container form-title icon">
@@ -57,9 +58,6 @@ export default function SearchPage() {
           </div>
           <div className="form-container form-title">Search for Supers</div>
           <div className="form-container">
-            {/* <label className="form-label" htmlFor="search">
-              Name of Super:
-            </label> */}
             <input
               className="form-input"
               value={queryInput}
@@ -69,9 +67,11 @@ export default function SearchPage() {
               placeholder="enter character here"
             ></input>
             <div className="form-error">
-              {formError &&
-                queryInput.length < 3 &&
-                "Name must contain at least 3 characters"}
+              {formError && queryInput.length < 3 && (
+                <Alert severity="error">
+                  Search must be at least 3 characters
+                </Alert>
+              )}
             </div>
             <Button
               variant="contained"
@@ -86,12 +86,25 @@ export default function SearchPage() {
             >
               Search
             </Button>
+
+            {/* <div>LOADING</div>
+            )} */}
+            <div className="form-error">
+              {error && !loading && (
+                <Alert severity="error">Character name not found</Alert>
+              )}
+              {/* ) && <div>{error}</div>} */}
+            </div>
           </div>
         </div>
       </div>
+      <div className="form-container">
+        {loading && <CircularProgress sx={{ color: "#144e75" }} />}
+      </div>
       <div>
-        {loading && <div>LOADING</div>}
-        {error && !loading && <div>{error}</div>}
+        {/* {loading && <div>LOADING</div>}
+        {error && !loading && <Alert severity="error">{error}</Alert>} */}
+        {/* ) && <div>{error}</div>} */}
         {search &&
           !loading &&
           search.map((val) => (
@@ -101,14 +114,15 @@ export default function SearchPage() {
               // id={val.id}
               hero_id={val.hero_id}
               name={val.name}
-              // intel={val.intel}
-              // strength={val.strength}
-              // speed={val.speed}
-              // durability={val.durability}
-              // power={val.power}
-              // combat={val.combat}
-              // fullName={val.fullName}
-              // birthplace={val.birthplace}
+              intel={val.intel}
+              strength={val.strength}
+              speed={val.speed}
+              durability={val.durability}
+              power={val.power}
+              combat={val.combat}
+              alterEgo={val.alterEgo}
+              publisher={val.publisher}
+              firstAppear={val.firstAppear}
               alignment={val.alignment}
               url={val.url}
               addMyHero={addMyHero}
