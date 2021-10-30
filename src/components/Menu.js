@@ -12,7 +12,7 @@ export default function Menu() {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 500) {
+      if (window.pageYOffset > 600) {
         setShowButton(true);
       } else {
         setShowButton(false);

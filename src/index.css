@@ -44,20 +44,21 @@ body {
   background-color: #d63a1b;
   border-top: 3px solid #d63a1b;
   border-bottom: 3px solid #d63a1b;
+  padding-left: 3px;
 }
 
 .logout {
   position: absolute;
   margin-top: 1px;
-  right: 2px;
-  width: 120px;
+  right: 3px;
+  width: 90px;
   height: 30px;
   font-weight: 600;
   font-size: inherit;
   color: #f3ece8;
   border: none;
   border-radius: 2px;
-  background-color: #217fbe;
+  background-color: #d63a1b;
 }
 
 .page-title {
@@ -79,29 +80,32 @@ body {
   font-weight: 600;
   text-align: center;
   line-height: 30px;
-  color: #f3ece8;
+  color: #144e75;
   flex-basis: calc(25% - 4px);
   border-radius: 2px;
-  background-color: #217fbe;
+  background-color: #f7db51;
   text-decoration: none;
   position: relative;
 }
 
-.link:hover,
 .logout:hover {
-  background-color: #5e95b9;
+  color: #217fbe;
+}
+
+.link:hover {
+  background-color: #fff1aa;
 }
 
 .active,
 .active:hover {
-  background-color: #f7db51;
+  background-color: #fff1aa;
   color: #144e75;
   cursor: default;
 }
 
 .form-surround {
   height: fit-content;
-  max-width: 350px;
+  width: 350px;
   margin-top: 50px;
   background-color: #217fbe;
   padding-top: 30px;
@@ -184,6 +188,6 @@ body {
 }
 
 .red-border {
-  border: 3px solid #d63a1b;
+  border: 3px solid #144e75;
   border-radius: 5px;
 }
