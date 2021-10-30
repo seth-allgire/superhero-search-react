@@ -25,15 +25,15 @@ export default function SearchPage() {
           hero_id: hero.id,
           name: hero.name,
           key: idx,
-          intel: hero.powerstats.intelligence,
-          strength: hero.powerstats.strength,
-          speed: hero.powerstats.speed,
-          durability: hero.powerstats.durability,
-          power: hero.powerstats.power,
-          combat: hero.powerstats.combat,
-          alterEgo: hero.biography["full-name"],
-          publisher: hero.biography.publisher,
-          firstAppear: hero.biography["first-appearance"],
+          // intel: hero.powerstats.intelligence,
+          // strength: hero.powerstats.strength,
+          // speed: hero.powerstats.speed,
+          // durability: hero.powerstats.durability,
+          // power: hero.powerstats.power,
+          // combat: hero.powerstats.combat,
+          // alterEgo: hero.biography["full-name"],
+          // publisher: hero.biography.publisher,
+          // firstAppear: hero.biography["first-appearance"],
           alignment: hero.biography.alignment,
           url: hero.image.url,
         }))
@@ -114,15 +114,15 @@ export default function SearchPage() {
               // id={val.id}
               hero_id={val.hero_id}
               name={val.name}
-              intel={val.intel}
-              strength={val.strength}
-              speed={val.speed}
-              durability={val.durability}
-              power={val.power}
-              combat={val.combat}
-              alterEgo={val.alterEgo}
-              publisher={val.publisher}
-              firstAppear={val.firstAppear}
+              // intel={val.intel}
+              // strength={val.strength}
+              // speed={val.speed}
+              // durability={val.durability}
+              // power={val.power}
+              // combat={val.combat}
+              // alterEgo={val.alterEgo}
+              // publisher={val.publisher}
+              // firstAppear={val.firstAppear}
               alignment={val.alignment}
               url={val.url}
               addMyHero={addMyHero}
